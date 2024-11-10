@@ -11,12 +11,12 @@ const studentCoursesRoutes = require("./routes/student-routes/student-courses-ro
 const studentCourseProgressRoutes = require("./routes/student-routes/course-progress-routes");
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8001;
 const MONGO_URI = process.env.MONGO_URI;
 
 app.use(
   cors({
-    origin: process.env.CLIENT_URL,
+    origin: '*',
     methods: ["GET", "POST", "DELETE", "PUT"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
@@ -26,7 +26,9 @@ app.use(express.json());
 
 //database connection
 mongoose
-  .connect(MONGO_URI)
+  .connect(
+    "mongodb+srv://srestha:1234@cluster0.t5etk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+  )
   .then(() => console.log("mongodb is connected"))
   .catch((e) => console.log(e));
 

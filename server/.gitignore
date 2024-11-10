@@ -1,0 +1,44 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+.env
+
+# Node modules directory
+/node_modules/
+
+# Build output directories (e.g., for TypeScript or Babel transpiled code)
+/dist/
+/build/
+
+# Logs
+*.log
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# OS-specific files
+.DS_Store      # macOS
+Thumbs.db      # Windows
+
+# IDE or editor-specific files
+.vscode/
+.idea/
+
+# npm package lock file (if you use Yarn, keep yarn.lock)
+package-lock.json
+
+# Dependency directories
+.npm/
+.yarn/
+
+# Test coverage reports
+/coverage/
+
+# Miscellaneous
+/.cache/

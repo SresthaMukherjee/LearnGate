@@ -103,9 +103,10 @@ function StudentHomePage() {
         </div>
         <div className="lg:w-full mb-8 lg:mb-0">
           <img
-            src={banner}
-            width={600}
-            height={400}
+            src="/Poster1.png"
+            alt="Poster1"
+            width={500}
+            height={500}
             className="w-full h-auto rounded-lg shadow-lg"
           />
         </div>

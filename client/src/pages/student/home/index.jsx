@@ -1,5 +1,4 @@
 import { courseCategories } from "@/config";
-import banner from "../../../../public/Banner1.png";
 import { Button } from "@/components/ui/button";
 import { useContext, useEffect } from "react";
 import { StudentContext } from "@/context/student-context";
@@ -77,7 +76,7 @@ function StudentHomePage() {
     </Link>
   </li>
   <li>
-    <Link to="/about" className="text-white hover:text-gray-300">
+    <Link to="/aboutus" className="text-white hover:text-gray-300">
       About
     </Link>
   </li>

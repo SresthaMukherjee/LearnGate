@@ -1,5 +1,5 @@
 import { courseCategories } from "@/config";
-import banner from "../../../../public/banner-img.png";
+import banner from "../../../../public/Banner1.png";
 import { Button } from "@/components/ui/button";
 import { useContext, useEffect } from "react";
 import { StudentContext } from "@/context/student-context";
@@ -103,8 +103,8 @@ function StudentHomePage() {
         </div>
         <div className="lg:w-full mb-8 lg:mb-0">
           <img
-            src="/Poster1.png"
-            alt="Poster1"
+            src="/Banner1.png"
+            alt="Banner1"
             width={500}
             height={500}
             className="w-full h-auto rounded-lg shadow-lg"

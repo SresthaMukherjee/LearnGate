@@ -58,7 +58,7 @@ const AboutUs = () => {
           <h2 className="text-3xl font-semibold mb-4 text-indigo-400">Our Website</h2>
           <p className="text-gray-400 leading-relaxed">
             Welcome to our platform! We are dedicated to providing a comprehensive and user-friendly 
-            experience for our users. Our goal is to make online learning, project management, and 
+            experience for our learner. Our goal is to make online learning, project management, and 
             team collaboration more efficient and accessible for everyone.
           </p>
         </div>

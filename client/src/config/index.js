@@ -52,6 +52,8 @@ export const initialSignUpFormData = {
 
 export const languageOptions = [
   { id: "english", label: "English" },
+  { id: "hindi", label: "Hindi" },
+  { id: "bengali", label: "Bengali" },
   { id: "spanish", label: "Spanish" },
   { id: "french", label: "French" },
   { id: "german", label: "German" },
@@ -67,9 +69,11 @@ export const courseLevelOptions = [
   { id: "beginner", label: "Beginner" },
   { id: "intermediate", label: "Intermediate" },
   { id: "advanced", label: "Advanced" },
+  { id: "pro", label: "Professional" },
 ];
 
 export const courseCategories = [
+  { id: "Programming Language", label: "Programming Language" },
   { id: "web-development", label: "Web Development" },
   { id: "backend-development", label: "Backend Development" },
   { id: "data-science", label: "Data Science" },
@@ -80,6 +84,7 @@ export const courseCategories = [
   { id: "mobile-development", label: "Mobile Development" },
   { id: "game-development", label: "Game Development" },
   { id: "software-engineering", label: "Software Engineering" },
+  
 ];
 
 export const courseLandingPageFormControls = [

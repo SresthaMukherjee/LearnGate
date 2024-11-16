@@ -53,9 +53,10 @@ function StudentHomePage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white">
+    
+    <div className="min-h-screen bg-gray-800">
       {/* Navbar */}
-      <nav className="bg-gray-800 p-4">
+      <nav className="bg-gray-900 p-4">
         <div className="max-w-screen-xl mx-auto flex justify-between items-center">
           <div className="flex items-center space-x-4">
             <Link to="/home" className="flex items-center hover:text-black">
@@ -111,7 +112,7 @@ function StudentHomePage() {
         </div>
       </section>
 
-      <section className="py-8 px-4 lg:px-8 bg-gray-100">
+      <section className="py-8 px-4 lg:px-8 bg-gray-700">
         <h2 className="text-2xl font-bold mb-6">Course Categories</h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
           {courseCategories.map((categoryItem) => (

@@ -188,8 +188,8 @@ function CourseCurriculum() {
 
   return (
     <Card>
-      <CardHeader className="flex flex-row justify-between">
-        <CardTitle>Create Course Curriculum</CardTitle>
+      <CardHeader className="flex flex-row justify-between text-white">
+        <CardTitle className= "text-black">Create Course Curriculum</CardTitle>
         <div>
           <Input
             type="file"
@@ -207,7 +207,7 @@ function CourseCurriculum() {
             className="cursor-pointer"
             onClick={handleOpenBulkUploadDialog}
           >
-            <Upload className="w-4 h-5 mr-2" />
+            <Upload className="w-4 h-5 mr-2 " />
             Bulk Upload
           </Button>
         </div>

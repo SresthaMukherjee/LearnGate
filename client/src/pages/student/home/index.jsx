@@ -141,7 +141,7 @@ function StudentHomePage() {
                   src={courseItem?.image}
                   width={300}
                   height={150}
-                  className="w-full h-40 object-cover"
+                  className="w-auto h-auto object-cover"
                 />
                 <div className="p-4">
                   <h3 className="font-bold mb-2">{courseItem?.title}</h3>

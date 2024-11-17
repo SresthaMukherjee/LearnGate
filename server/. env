@@ -1,5 +1,0 @@
-CLIENT_URL=*
-
-MONGO_URI=mongodb+srv://srestha:1234@cluster0.t5etk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
-
-PORT = 8001

@@ -13,7 +13,7 @@ const studentCourseProgressRoutes = require("./routes/student-routes/course-prog
 const app = express();
 const PORT = process.env.PORT || 8001;
 const MONGO_URI = process.env.MONGO_URI;
-
+console.log(process.env.CLOUDINARY_API_KEY)
 app.use(
   cors({
     origin: '*',

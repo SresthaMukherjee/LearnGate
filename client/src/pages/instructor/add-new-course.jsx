@@ -15,7 +15,7 @@ import {
   fetchInstructorCourseDetailsService,
   updateCourseByIdService,
 } from "@/services";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react"; // Added useState import
 import { useNavigate, useParams } from "react-router-dom";
 
 function AddNewCoursePage() {
@@ -32,7 +32,13 @@ function AddNewCoursePage() {
   const navigate = useNavigate();
   const params = useParams();
 
-  console.log(params);
+  // State to manage the selected file for upload
+  const [selectedFile, setSelectedFile] = useState(null);
+
+  // Handle file selection
+  function handleFileChange(event) {
+    setSelectedFile(event.target.files[0]);
+  }
 
   function isEmpty(value) {
     if (Array.isArray(value)) {
@@ -61,7 +67,7 @@ function AddNewCoursePage() {
       }
 
       if (item.freePreview) {
-        hasFreePreview = true; //found at least one free preview
+        hasFreePreview = true; // Found at least one free preview
       }
     }
 
@@ -69,6 +75,36 @@ function AddNewCoursePage() {
   }
 
   async function handleCreateCourse() {
+    let uploadedFileUrl = null;
+
+    // If there's a selected file, handle the file upload
+    if (selectedFile) {
+      try {
+        // Replace this with the actual file upload logic
+        const formData = new FormData();
+        formData.append("file", selectedFile);
+
+        // Example of uploading to a service (replace with your own service)
+        const uploadResponse = await fetch("/your-file-upload-endpoint", {
+          method: "POST",
+          body: formData,
+        });
+
+        const uploadData = await uploadResponse.json();
+
+        // Assume the response contains the URL of the uploaded file
+        if (uploadResponse.ok && uploadData.url) {
+          uploadedFileUrl = uploadData.url;
+        } else {
+          console.error("File upload failed", uploadData);
+          return; // Exit if the upload fails
+        }
+      } catch (error) {
+        console.error("File upload error:", error);
+        return; // Exit if an error occurs during upload
+      }
+    }
+
     const courseFinalFormData = {
       instructorId: auth?.user?._id,
       instructorName: auth?.user?.userName,
@@ -77,6 +113,7 @@ function AddNewCoursePage() {
       students: [],
       curriculum: courseCurriculumFormData,
       isPublised: true,
+      uploadedFileUrl, // Add the uploaded file URL to the course data
     };
 
     const response =
@@ -134,12 +171,13 @@ function AddNewCoursePage() {
       <div className="flex justify-between">
         <h1 className="text-3xl font-extrabold mb-5">Create a new course</h1>
         <Button
-          disabled={!validateFormData()}
-          className="text-sm tracking-wider font-bold px-8"
-          onClick={handleCreateCourse}
-        >
-          SUBMIT
-        </Button>
+  enabled={!validateFormData()} // If validation fails, the button will be disabled
+  className="text-sm tracking-wider font-bold px-8"
+  onClick={handleCreateCourse}
+>
+  SUBMIT
+</Button>
+
       </div>
       <Card>
         <CardContent>
@@ -157,6 +195,12 @@ function AddNewCoursePage() {
               </TabsContent>
               <TabsContent value="course-landing-page">
                 <CourseLanding />
+                {/* File input for selecting the file to upload */}
+                <input
+                  type="file"
+                  onChange={handleFileChange}
+                  className="mt-4"
+                />
               </TabsContent>
               <TabsContent value="settings">
                 <CourseSettings />

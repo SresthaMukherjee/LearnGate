@@ -209,9 +209,12 @@ function StudentViewCoursesPage() {
                   >
                     <CardContent className="flex gap-4 p-4">
                       <div className="w-48 h-32 flex-shrink-0">
+                        
+                        {/* image size */}
+                        
                         <img
                           src={courseItem?.image}
-                          className="w-full h-full object-cover rounded-md"
+                          className="w-auto h-auto object-cover rounded-md"
                         />
                       </div>
                       <div className="flex-1">

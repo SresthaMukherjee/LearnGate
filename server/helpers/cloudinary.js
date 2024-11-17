@@ -9,6 +9,7 @@ cloudinary.config({
 
 const uploadMediaToCloudinary = async (filePath) => {
   try {
+    console.log(process.env.CLOUDINARY_API_SECRET)
     const result = await cloudinary.uploader.upload(filePath, {
       resource_type: "auto",
     });

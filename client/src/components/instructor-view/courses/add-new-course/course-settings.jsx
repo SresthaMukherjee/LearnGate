@@ -16,6 +16,7 @@ function CourseSettings() {
     setMediaUploadProgressPercentage,
   } = useContext(InstructorContext);
 
+  // Handle image upload change
   async function handleImageUploadChange(event) {
     const selectedImage = event.target.files[0];
 
@@ -42,6 +43,14 @@ function CourseSettings() {
     }
   }
 
+  // Handle delete image action
+  function handleImageDelete() {
+    setCourseLandingFormData({
+      ...courseLandingFormData,
+      image: "", // Remove the image URL from the state
+    });
+  }
+
   return (
     <Card>
       <CardHeader>
@@ -57,14 +66,27 @@ function CourseSettings() {
       </div>
       <CardContent>
         {courseLandingFormData?.image ? (
-          <img src={courseLandingFormData.image} />
+          <div className="flex flex-col gap-3">
+            <img
+              src={courseLandingFormData.image}
+              alt="Course"
+              className="mb-4"
+            />
+            {/* Delete Image Button */}
+            <button
+              onClick={handleImageDelete}
+              className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600"
+            >
+              Delete Image
+            </button>
+          </div>
         ) : (
           <div className="flex flex-col gap-3">
             <Label>Upload Course Image</Label>
             <Input
               onChange={handleImageUploadChange}
               type="file"
-              accept=".png, .jepg, .jpg*"
+              accept="image/*"
             />
           </div>
         )}
@@ -74,3 +96,4 @@ function CourseSettings() {
 }
 
 export default CourseSettings;
+

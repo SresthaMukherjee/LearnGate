@@ -214,7 +214,7 @@ function CourseCurriculum() {
       </CardHeader>
       <CardContent>
         <Button
-          disabled={!isCourseCurriculumFormDataValid() || mediaUploadProgress}
+          enabled={!isCourseCurriculumFormDataValid() || mediaUploadProgress}
           onClick={handleNewLecture}
         >
           Add Lecture

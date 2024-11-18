@@ -73,6 +73,7 @@ export const courseLevelOptions = [
 ];
 
 export const courseCategories = [
+  { id: "All Course", label: "All course" },
   { id: "Programming Language", label: "Programming Language" },
   { id: "web-development", label: "Web Development" },
   { id: "backend-development", label: "Backend Development" },

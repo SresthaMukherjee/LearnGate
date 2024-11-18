@@ -1,60 +1,80 @@
-/* eslint-disable react/jsx-key */
-import { courseCategories } from "@/config";
+import { useContext, useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { useContext, useEffect } from "react";
+import { courseCategories } from "@/config";
 import { StudentContext } from "@/context/student-context";
+import { AuthContext } from "@/context/auth-context";
 import {
   checkCoursePurchaseInfoService,
   fetchStudentViewCourseListService,
 } from "@/services";
-import { AuthContext } from "@/context/auth-context";
-import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";  // <-- Add this import
 
 function StudentHomePage() {
+  // Contexts and Navigation
   const { studentViewCoursesList, setStudentViewCoursesList } =
     useContext(StudentContext);
   const { auth } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  function handleNavigateToCoursesPage(getCurrentId) {
-    console.log(getCurrentId);
-    sessionStorage.removeItem("filters");
-    const currentFilter = {
-      category: [getCurrentId],
-    };
+  // Local State
+  const [isLoading, setIsLoading] = useState(true);
 
-    sessionStorage.setItem("filters", JSON.stringify(currentFilter));
-
-    navigate("/courses");
-  }
-
+  // Fetch Courses
   async function fetchAllStudentViewCourses() {
-    const response = await fetchStudentViewCourseListService();
-    if (response?.success) setStudentViewCoursesList(response?.data);
-  }
-
-  async function handleCourseNavigate(getCurrentCourseId) {
-    const response = await checkCoursePurchaseInfoService(
-      getCurrentCourseId,
-      auth?.user?._id
-    );
-
-    if (response?.success) {
-      if (response?.data) {
-        navigate(`/course-progress/${getCurrentCourseId}`);
+    try {
+      setIsLoading(true);
+      const response = await fetchStudentViewCourseListService();
+      if (response?.success) {
+        setStudentViewCoursesList(response?.data);
       } else {
-        navigate(`/course/details/${getCurrentCourseId}`);
+        console.error("Failed to fetch courses.");
       }
+    } catch (error) {
+      console.error("An error occurred while fetching courses:", error);
+    } finally {
+      setIsLoading(false);
     }
   }
 
+  // Handle Navigation to Course Details or Progress
+  async function handleCourseNavigate(getCurrentCourseId) {
+    try {
+      const response = await checkCoursePurchaseInfoService(
+        getCurrentCourseId,
+        auth?.user?._id
+      );
+
+      if (response?.success) {
+        if (response?.data) {
+          navigate(`/course-progress/${getCurrentCourseId}`);
+        } else {
+          navigate(`/course/details/${getCurrentCourseId}`);
+        }
+      }
+    } catch (error) {
+      console.error("An error occurred while navigating to the course:", error);
+    }
+  }
+
+  // Handle Category Filter Navigation
+  function handleNavigateToCoursesPage(getCurrentId) {
+    sessionStorage.removeItem("filters");
+    const currentFilter = { category: [getCurrentId] };
+    sessionStorage.setItem("filters", JSON.stringify(currentFilter));
+    navigate("/courses");
+  }
+
+  // Use Effect to Fetch Courses on Component Mount
   useEffect(() => {
     fetchAllStudentViewCourses();
   }, []);
 
+  // Sorting Courses by Creation Date (most recent first)
+  const sortedCourses = studentViewCoursesList.sort(
+    (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+  );
+
   return (
-    
     <div className="min-h-screen bg-gray-800">
       {/* Navbar */}
       <nav className="bg-gray-900 p-4">
@@ -70,42 +90,48 @@ function StudentHomePage() {
             </Link>
           </div>
 
-         {/* Navbar Links */}
-<ul className="flex space-x-6">
-  <li>
-    <Link to="/student-courses" className="text-white hover:text-gray-300">
-      Profile
-    </Link>
-  </li>
-  <li>
-    <Link to="/aboutus" className="text-white hover:text-gray-300">
-      About
-    </Link>
-  </li>
-  {/* Conditional rendering for login button */}
-  {!auth?.user ? (
-    <li>
-      <Link to="/auth" className="text-white hover:text-gray-300">
-        Login
-      </Link>
-    </li>
-  ) : null}
-</ul>
+          {/* Navbar Links */}
+          <ul className="flex space-x-6">
+            <li>
+              <Link to="/student-courses" className="text-white hover:text-gray-300">
+                Profile
+              </Link>
+            </li>
+            <li>
+              <Link to="/aboutus" className="text-white hover:text-gray-300">
+                About
+              </Link>
+            </li>
 
+            {/* Conditional rendering for login button */}
+            {!auth?.user ? (
+              <li>
+                <Link to="/auth" className="text-white hover:text-gray-300">
+                  Login
+                </Link>
+              </li>
+            ) : (
+              // If user is logged in, show the greeting
+              <li className="text-white">
+                {auth?.user?.username ? `Hello, ${auth.user.username}` : "Hello, User"}
+              </li>
+            )}
+          </ul>
         </div>
       </nav>
-      
+
+      {/* Hero Section */}
       <section className="flex flex-col lg:flex-row items-center justify-between py-8 px-4 lg:px-8">
         <div className="lg:w-1/2 lg:pr-12">
-          <h1 className="text-4xl font-bold mb-4">Learning that gets you</h1>
-          <p className="text-xl">
-            Skills for your present and your future. Get Started with US
+          <h1 className="text-4xl font-bold mb-4 text-white">Learning that gets you</h1>
+          <p className="text-xl text-gray-200">
+            Skills for your present and your future. Get Started with Us
           </p>
         </div>
         <div className="lg:w-full mb-8 lg:mb-0">
           <img
             src="/Banner1.png"
-            alt="Banner1"
+            alt="Banner"
             width={500}
             height={500}
             className="w-full h-auto rounded-lg shadow-lg"
@@ -113,8 +139,9 @@ function StudentHomePage() {
         </div>
       </section>
 
+      {/* Course Categories Section */}
       <section className="py-8 px-4 lg:px-8 bg-gray-700">
-        <h2 className="text-2xl font-bold mb-6">Course Categories</h2>
+        <h2 className="text-2xl font-bold mb-6 text-white">Course Categories</h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
           {courseCategories.map((categoryItem) => (
             <Button
@@ -129,35 +156,90 @@ function StudentHomePage() {
         </div>
       </section>
 
-      <section className="py-12 px-4 lg:px-8">
-        <h2 className="text-2xl font-bold mb-6">Featured Courses</h2>
+      {/* Featured Courses Section */}
+      <section className="py-12 px-4 lg:px-8 bg-gray-900">
+        <h2 className="text-2xl font-bold mb-6 text-white">Featured Courses</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {studentViewCoursesList && studentViewCoursesList.length > 0 ? (
-            studentViewCoursesList.map((courseItem) => (
-              <div
-                onClick={() => handleCourseNavigate(courseItem?._id)}
-                className="border rounded-lg overflow-hidden shadow cursor-pointer"
-              >
-                <img
-                  src={courseItem?.image}
-                  width={300}
-                  height={150}
-                  className="w-auto h-auto object-cover"
-                />
-                <div className="p-4">
-                  <h3 className="font-bold mb-2">{courseItem?.title}</h3>
-                  <p className="text-sm text-gray-700 mb-2">
-                    {courseItem?.instructorName}
-                  </p>
-                  <p className="font-bold text-[16px]">
-                  ₹{courseItem?.pricing}
-                  </p>
+          {isLoading ? (
+            <div className="text-indigo">Loading...</div>
+          ) : sortedCourses && sortedCourses.length > 0 ? (
+            sortedCourses
+              .slice(0, 5) // Display only the top 5 most recent courses
+              .map((courseItem) => (
+                <div
+                  key={courseItem?._id}
+                  onClick={() => handleCourseNavigate(courseItem?._id)}
+                  className="border rounded-lg overflow-hidden shadow cursor-pointer bg-white transition duration-300 ease-in-out hover:bg-gray-800 hover:scale-105"
+                >
+                  <img
+                    src={courseItem?.image}
+                    width={300}
+                    height={150}
+                    className="w-auto h-auto object-cover"
+                    alt={courseItem?.title}
+                  />
+                  <div className="p-4 bg-gray-900">
+                    <h3 className="font-bold mb-2 text-indigo-500 hover:text-indigo-300 hover:font-extrabold">
+                      {courseItem?.title}
+                    </h3>
+                    <p className="text-sm text-gray-300 mb-2 hover:font-bold">
+                      {courseItem?.instructorName}
+                    </p>
+                    <p className="font-bold text-[16px] text-white hover:font-extrabold">
+                      ₹{courseItem?.pricing}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            ))
+              ))
           ) : (
-            <h1>No Courses Found</h1>
+            <h1 className="text-white">No Courses Found</h1>
           )}
+        </div>
+      </section>
+
+      {/* Footer Section */}
+      <section>
+        <div className="bg-gray-900 py-8">
+          <div className="max-w-screen-xl mx-auto text-center text-white">
+            <p className="text-sm mb-2">© 2024 LearnGate. All Rights Reserved.</p>
+            <div className="space-x-6 mb-4">
+              <Link  className="text-gray-400 hover:text-gray-200">
+                Privacy Policy
+              </Link>
+              <Link  className="text-gray-400 hover:text-gray-200">
+                Terms of Service
+              </Link>
+              <Link  className="text-gray-400 hover:text-gray-200">
+                Contact Us
+              </Link>
+            </div>
+            <div className="flex justify-center space-x-6">
+              <a
+                href="https://facebook.com"
+                className="text-gray-400 hover:text-gray-200"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i className="fab fa-facebook"></i>
+              </a>
+              <a
+                href="https://twitter.com"
+                className="text-gray-400 hover:text-gray-200"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i className="fab fa-twitter"></i>
+              </a>
+              <a
+                href="https://linkedin.com"
+                className="text-gray-400 hover:text-gray-200"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i className="fab fa-linkedin"></i>
+              </a>
+            </div>
+          </div>
         </div>
       </section>
     </div>

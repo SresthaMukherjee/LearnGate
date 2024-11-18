@@ -47,6 +47,10 @@ function InstructorCourses({ listOfCourses }) {
             <TableHeader>
               <TableRow>
                 <TableHead>Course</TableHead>
+                <TableHead>Instructor</TableHead> {/* Added Instructor Column */}
+                <TableHead>Language</TableHead> {/* Added Language Column */}
+                <TableHead>Category</TableHead> {/* Added Category Column */}
+                <TableHead>Level</TableHead> {/* Added Level Column */}
                 <TableHead>Students</TableHead>
                 <TableHead>Revenue</TableHead>
                 <TableHead className="text-right">Actions</TableHead>
@@ -55,18 +59,22 @@ function InstructorCourses({ listOfCourses }) {
             <TableBody>
               {listOfCourses && listOfCourses.length > 0
                 ? listOfCourses.map((course) => (
-                    <TableRow>
+                    <TableRow key={course._id}>
                       <TableCell className="font-medium">
                         {course?.title}
                       </TableCell>
+                      <TableCell>{course?.instructorName}</TableCell> {/* Displaying Instructor Name */}
+                      <TableCell>{course?.primaryLanguage}</TableCell> {/* Displaying Language */}
+                      <TableCell>{course?.category}</TableCell> {/* Displaying Category */}
+                      <TableCell>{course?.level}</TableCell> {/* Displaying Course Level */}
                       <TableCell>{course?.students?.length}</TableCell>
                       <TableCell>
-                      ₹{course?.students?.length * course?.pricing}
+                        ₹{course?.students?.length * course?.pricing}
                       </TableCell>
                       <TableCell className="text-right">
                         <Button
                           onClick={() => {
-                            navigate(`/instructor/edit-course/₹{course?._id}`);
+                            navigate(`/instructor/edit-course/${course?._id}`);
                           }}
                           variant="ghost"
                           size="sm"

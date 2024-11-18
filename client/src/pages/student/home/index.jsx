@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import { courseCategories } from "@/config";
 import { Button } from "@/components/ui/button";
 import { useContext, useEffect } from "react";
@@ -72,7 +73,7 @@ function StudentHomePage() {
          {/* Navbar Links */}
 <ul className="flex space-x-6">
   <li>
-    <Link to="/profile" className="text-white hover:text-gray-300">
+    <Link to="/student-courses" className="text-white hover:text-gray-300">
       Profile
     </Link>
   </li>

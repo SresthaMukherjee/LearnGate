@@ -33,15 +33,15 @@ const AboutUs = () => {
           {/* Navbar Links */}
           <ul className="flex space-x-6">
             <li>
-              <Link to="/profile" className="text-white hover:text-gray-300">
-                Profile
+              <Link to="/home" className="text-white hover:text-gray-300">
+                Go Back
               </Link>
             </li>
             {/* Conditional rendering for the login button */}
             {!auth?.user && (
               <li>
-                <Link to="/auth" className="text-white hover:text-gray-300">
-                  Login
+                <Link to="/courses" className="text-white hover:text-gray-300">
+                  Explore Courses
                 </Link>
               </li>
             )}

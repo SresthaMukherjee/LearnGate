@@ -26,7 +26,7 @@ function MediaProgressbar({ isMediaUploading, progress }) {
         className="bg-blue-600 h-3 rounded-full"
         initial={{ width: 0 }}
         animate={{
-          width: `${animatedProgress}%`,
+          width: `₹{animatedProgress}%`,
           transition: { duration: 0.5, ease: "easeInOut" },
         }}
       >

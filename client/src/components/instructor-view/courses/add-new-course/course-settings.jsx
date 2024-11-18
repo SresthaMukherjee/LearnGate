@@ -64,7 +64,7 @@ function CourseSettings() {
             <Input
               onChange={handleImageUploadChange}
               type="file"
-              accept="image/*"
+              accept=".png, .jepg, .jpg*"
             />
           </div>
         )}

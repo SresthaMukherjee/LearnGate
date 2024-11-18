@@ -61,12 +61,12 @@ function InstructorCourses({ listOfCourses }) {
                       </TableCell>
                       <TableCell>{course?.students?.length}</TableCell>
                       <TableCell>
-                        ${course?.students?.length * course?.pricing}
+                      ₹{course?.students?.length * course?.pricing}
                       </TableCell>
                       <TableCell className="text-right">
                         <Button
                           onClick={() => {
-                            navigate(`/instructor/edit-course/${course?._id}`);
+                            navigate(`/instructor/edit-course/₹{course?._id}`);
                           }}
                           variant="ghost"
                           size="sm"

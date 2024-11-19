@@ -42,19 +42,20 @@ function StudentViewCourseDetailsPage() {
   const location = useLocation();
 
   async function fetchStudentViewCourseDetails() {
-    // const checkCoursePurchaseInfoResponse =
-    //   await checkCoursePurchaseInfoService(
-    //     currentCourseDetailsId,
-    //     auth?.user._id
-    //   );
+    //{ccomment out area}
+    const checkCoursePurchaseInfoResponse =
+    await checkCoursePurchaseInfoService(
+        currentCourseDetailsId,
+        auth?.user._id
+       );
 
-    // if (
-    //   checkCoursePurchaseInfoResponse?.success &&
-    //   checkCoursePurchaseInfoResponse?.data
-    // ) {
-    //   navigate(`/course-progress/${currentCourseDetailsId}`);
-    //   return;
-    // }
+     if (
+       checkCoursePurchaseInfoResponse?.success &&
+       checkCoursePurchaseInfoResponse?.data
+     ) {
+       navigate(`/course-progress/${currentCourseDetailsId}`);
+       return;
+     }
 
     const response = await fetchStudentViewCourseDetailsService(
       currentCourseDetailsId

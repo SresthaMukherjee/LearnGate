@@ -83,7 +83,7 @@ function StudentViewCoursesPage() {
     const response = await fetchStudentViewCourseListService(query);
     if (response?.success) {
       setStudentViewCoursesList(response?.data);
-      setLoadingState(true);
+      setLoadingState(false);
     }
   }
 
@@ -132,26 +132,25 @@ function StudentViewCoursesPage() {
         <div className="flex flex-col md:flex-row gap-4">
           <aside className="w-full md:w-64 space-y-4 bg-gray-800 p-4 rounded-md">
             <div>
-              {Object.keys(filterOptions).map((keyItem) => (
-                <div className="p-4 border-b border-gray-700" key={keyItem}>
+              {Object.keys(filterOptions).map((ketItem) => (
+                <div className="p-4 border-b border-gray-700">
                   <h3 className="font-bold mb-3 text-indigo-400">
-                    {keyItem.toUpperCase()}
+                    {ketItem.toUpperCase()}
                   </h3>
                   <div className="grid gap-2 mt-2">
-                    {filterOptions[keyItem].map((option) => (
+                    {filterOptions[ketItem].map((option) => (
                       <Label
                         className="flex font-medium items-center gap-3 text-gray-300"
-                        key={option.id}
                       >
                         <Checkbox
                           checked={
                             filters &&
                             Object.keys(filters).length > 0 &&
-                            filters[keyItem] &&
-                            filters[keyItem].indexOf(option.id) > -1
+                            filters[ketItem] &&
+                            filters[ketItem].indexOf(option.id) > -1
                           }
                           onCheckedChange={() =>
-                            handleFilterOnChange(keyItem, option)
+                            handleFilterOnChange(ketItem, option)
                           }
                         />
                         {option.label}

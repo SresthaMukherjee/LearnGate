@@ -41,9 +41,10 @@ function StudentViewCourseDetailsPage() {
   const { id } = useParams();
   const location = useLocation();
 
-  async function fetchStudentViewCourseDetails() {
+  
+async function fetchStudentViewCourseDetails() {
     //{ccomment out area}
-    const checkCoursePurchaseInfoResponse =
+   /* const checkCoursePurchaseInfoResponse =
     await checkCoursePurchaseInfoService(
         currentCourseDetailsId,
         auth?.user._id
@@ -55,7 +56,7 @@ function StudentViewCourseDetailsPage() {
      ) {
        navigate(`/course-progress/${currentCourseDetailsId}`);
        return;
-     }
+     }*/
 
     const response = await fetchStudentViewCourseDetailsService(
       currentCourseDetailsId

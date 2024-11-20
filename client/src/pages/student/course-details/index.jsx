@@ -194,7 +194,7 @@ async function fetchStudentViewCourseDetails() {
               {studentViewCourseDetails?.curriculum?.map(
                 (curriculumItem, index) => (
                   <li
-                    className={`₹{
+                    className={`${
                       curriculumItem?.freePreview
                         ? "cursor-pointer"
                         : "cursor-not-allowed"
@@ -235,7 +235,7 @@ async function fetchStudentViewCourseDetails() {
               </div>
               <div className="mb-4">
                 <span className="text-3xl font-bold">
-                ₹{studentViewCourseDetails?.pricing}
+                ${studentViewCourseDetails?.pricing}
                 </span>
               </div>
               <Button onClick={handleCreatePayment} className="w-full">

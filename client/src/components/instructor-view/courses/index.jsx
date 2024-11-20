@@ -69,7 +69,7 @@ function InstructorCourses({ listOfCourses }) {
                       <TableCell>{course?.level}</TableCell> {/* Displaying Course Level */}
                       <TableCell>{course?.students?.length}</TableCell>
                       <TableCell>
-                        ₹{course?.students?.length * course?.pricing}
+                        ${course?.students?.length * course?.pricing}
                       </TableCell>
                       <TableCell className="text-right">
                         <Button

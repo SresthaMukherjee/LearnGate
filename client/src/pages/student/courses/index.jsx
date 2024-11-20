@@ -241,7 +241,7 @@ function StudentViewCoursesPage() {
                           } - ${courseItem?.level.toUpperCase()} Level`}
                         </p>
                         <p className="font-bold text-lg text-indigo-400">
-                        ₹{courseItem?.pricing}
+                        ${courseItem?.pricing}
                         </p>
                       </div>
                     </CardContent>

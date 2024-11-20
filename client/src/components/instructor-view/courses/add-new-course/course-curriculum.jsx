@@ -156,7 +156,7 @@ function CourseCurriculum() {
           ...response?.data.map((item, index) => ({
             videoUrl: item?.url,
             public_id: item?.public_id,
-            title: `Lecture ₹{
+            title: `Lecture ${
               cpyCourseCurriculumFormdata.length + (index + 1)
             }`,
             freePreview: false,
@@ -231,7 +231,7 @@ function CourseCurriculum() {
               <div className="flex gap-5 items-center">
                 <h3 className="font-semibold">Lecture {index + 1}</h3>
                 <Input
-                  name={`title-₹{index + 1}`}
+                  name={`title-${index + 1}`}
                   placeholder="Enter lecture title"
                   className="max-w-96"
                   onChange={(event) => handleCourseTitleChange(event, index)}

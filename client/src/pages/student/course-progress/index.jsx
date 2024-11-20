@@ -147,7 +147,7 @@ function StudentViewCourseProgressPage() {
       </div>
       <div className="flex flex-1 overflow-hidden">
         <div
-          className={`flex-1 ₹{
+          className={`flex-1 ${
             isSideBarOpen ? "mr-[400px]" : ""
           } transition-all duration-300`}
         >

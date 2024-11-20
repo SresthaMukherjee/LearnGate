@@ -88,18 +88,25 @@ function StudentViewCoursesPage() {
   }
 
   async function handleCourseNavigate(getCurrentCourseId) {
+   try {
     const response = await checkCoursePurchaseInfoService(
       getCurrentCourseId,
       auth?.user?._id
     );
-
-    if (response?.success) {
+ console.log(response)
+     if (response?.success) {
       if (response?.data) {
-        navigate(`/course-progress/${getCurrentCourseId}`);
+       navigate(`/course-progress/${getCurrentCourseId}`);
       } else {
-        navigate(`/course/details/${getCurrentCourseId}`);
-      }
-    }
+         navigate(`/course/details/${getCurrentCourseId}`);
+       }
+     }
+     else{
+      navigate(`/course/details/${getCurrentCourseId}`);
+     }
+   } catch (error) {
+    navigate(`/course/details/${getCurrentCourseId}`);
+   }
   }
 
   useEffect(() => {

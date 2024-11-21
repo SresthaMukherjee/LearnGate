@@ -20,7 +20,15 @@ export const signUpFormControls = [
     type: "password",
     componentType: "input",
   },
+  {
+    name: "confirmPassword",
+    label: "Re-enter Password",
+    placeholder: "Re-enter your password",
+    type: "password",
+    componentType: "input",
+  },
 ];
+
 
 export const signInFormControls = [
   {
@@ -48,7 +56,9 @@ export const initialSignUpFormData = {
   userName: "",
   userEmail: "",
   password: "",
+  confirmPassword: "", // New field
 };
+
 
 export const languageOptions = [
   { id: "english", label: "English" },

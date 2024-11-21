@@ -9,7 +9,6 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { signInFormControls, signUpFormControls } from "@/config";
 import { AuthContext } from "@/context/auth-context";
-import { GraduationCap } from "lucide-react";
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -37,13 +36,22 @@ function AuthPage() {
   }
 
   function checkIfSignUpFormIsValid() {
+    const validEmailDomains = ["gmail.com", "yahoo.com", "yopmail.com"];
+    const emailDomain = signUpFormData.userEmail.split("@").pop();
+    const isValidEmail = validEmailDomains.includes(emailDomain);
+    const isValidPassword = signUpFormData.password.length >= 8;
+    const isUsernameValid = /^[a-z,A-Z]{2,}$/.test(signUpFormData.userName);
+    const isPasswordConfirmed = signUpFormData.password === signUpFormData.confirmPassword;
+  
     return (
       signUpFormData &&
-      signUpFormData.userName !== "" &&
-      signUpFormData.userEmail !== "" &&
-      signUpFormData.password !== ""
+      isUsernameValid &&
+      isValidEmail &&
+      isValidPassword &&
+      isPasswordConfirmed
     );
   }
+  
 
   console.log(signInFormData);
 

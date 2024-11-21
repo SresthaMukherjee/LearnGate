@@ -7,17 +7,46 @@ export const AuthContext = createContext(null);
 
 export default function AuthProvider({ children }) {
   const [signInFormData, setSignInFormData] = useState(initialSignInFormData);
-  const [signUpFormData, setSignUpFormData] = useState(initialSignUpFormData);
+  const [signUpFormData, setSignUpFormData] = useState({
+    ...initialSignUpFormData,
+    reEnterPassword: "", // Added for password re-entry
+  });
   const [auth, setAuth] = useState({
     authenticate: false,
     user: null,
   });
   const [loading, setLoading] = useState(true);
 
+  function isEmailAllowed(email) {
+    const allowedDomains = ["gmail.com", "yahoo.com", "yopmail.com"];
+    const emailDomain = email.split("@")[1];
+    return allowedDomains.includes(emailDomain.toLowerCase());
+  }
+
+  function validateSignUpForm() {
+    const { userName, userEmail, password, reEnterPassword } = signUpFormData;
+    const isUsernameValid = /^[A-Za-z]{2,}$/.test(userName);
+    const isPasswordValid = password.length >= 8;
+    const isPasswordMatch = password === reEnterPassword;
+    const isEmailValid = isEmailAllowed(userEmail);
+
+    return (
+      isUsernameValid && isPasswordValid && isPasswordMatch && isEmailValid
+    );
+  }
+
   async function handleRegisterUser(event) {
     event.preventDefault();
+    if (!validateSignUpForm()) {
+      alert("Please ensure all fields are valid!");
+      return;
+    }
     const data = await registerService(signUpFormData);
-    setSignUpFormData(initialSignUpFormData)
+    if (data.success) {
+      setSignUpFormData(initialSignUpFormData);
+      // Navigate to home page upon successful signup
+     
+    }
   }
 
   async function handleLoginUser(event) {
@@ -41,8 +70,6 @@ export default function AuthProvider({ children }) {
       });
     }
   }
-
-  //check auth user
 
   async function checkAuthUser() {
     try {
@@ -82,8 +109,6 @@ export default function AuthProvider({ children }) {
   useEffect(() => {
     checkAuthUser();
   }, []);
-
-  console.log(auth, "gf");
 
   return (
     <AuthContext.Provider

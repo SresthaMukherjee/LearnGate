@@ -43,7 +43,7 @@ function StudentHomePage() {
         getCurrentCourseId,
         auth?.user?._id
       );
-
+      console.log(response)
       if (response?.success) {
         if (response?.data) {
           navigate(`/course-progress/${getCurrentCourseId}`);
@@ -51,8 +51,11 @@ function StudentHomePage() {
           navigate(`/course/details/${getCurrentCourseId}`);
         }
       }
+      else{
+        navigate(`/course/details/${getCurrentCourseId}`);
+       }
     } catch (error) {
-      console.error("An error occurred while navigating to the course:", error);
+      navigate(`/course/details/${getCurrentCourseId}`);
     }
   }
 

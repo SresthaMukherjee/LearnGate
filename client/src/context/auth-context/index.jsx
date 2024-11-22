@@ -37,17 +37,51 @@ export default function AuthProvider({ children }) {
 
   async function handleRegisterUser(event) {
     event.preventDefault();
-    if (!validateSignUpForm()) {
-      alert("Please ensure all fields are valid!");
-      return;
+  
+    // Extract necessary fields for validation
+    const { userName, userEmail, password, confirmPassword } = signUpFormData;
+  
+    // Validation checks
+    const isUsernameValid = /^[A-Za-z]{2,}$/.test(userName);
+    const isPasswordValid = password.length >= 8;
+    const isPasswordMatch = password === confirmPassword;
+    const isEmailValid = isEmailAllowed(userEmail);
+  
+    // Display detailed alerts and stop execution if validation fails
+    if (!isUsernameValid) {
+      alert("Username must contain at least 2 letters.");
+      return; // Prevents further execution
     }
-    const data = await registerService(signUpFormData);
-    if (data.success) {
-      setSignUpFormData(initialSignUpFormData);
-      // Navigate to home page upon successful signup
-     
+    if (!isEmailValid) {
+      alert("Invalid email domain. Use gmail.com, yahoo.com, or yopmail.com.");
+      return; // Prevents further execution
+    }
+    if (!isPasswordValid) {
+      alert("Password must be at least 8 characters.");
+      return; // Prevents further execution
+    }
+    if (!isPasswordMatch) {
+      alert("Passwords do not match.");
+      return; // Prevents further execution
+    }
+  
+    // Proceed with registration if all validations pass
+    try {
+      const data = await registerService(signUpFormData);
+  
+      if (data.success) {
+        setSignUpFormData(initialSignUpFormData); // Reset form
+        alert("Registration successful!");
+        navigate("/"); // Redirect to the home page
+      } else {
+        alert(data.message || "Registration failed. Please try again.");
+      }
+    } catch (error) {
+      alert("An error occurred during registration. Please try again later.");
+      console.error(error);
     }
   }
+  
 
   async function handleLoginUser(event) {
     event.preventDefault();

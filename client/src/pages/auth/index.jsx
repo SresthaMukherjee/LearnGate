@@ -36,21 +36,21 @@ function AuthPage() {
   }
 
   function checkIfSignUpFormIsValid() {
+    if (!signUpFormData.userEmail || !signUpFormData.userEmail.includes("@")) {
+      return false;
+    }
+  
     const validEmailDomains = ["gmail.com", "yahoo.com", "yopmail.com"];
-    const emailDomain = signUpFormData.userEmail.split("@").pop();
+    const emailDomain = signUpFormData.userEmail.split("@").pop().toLowerCase();
     const isValidEmail = validEmailDomains.includes(emailDomain);
+  
     const isValidPassword = signUpFormData.password.length >= 8;
-    const isUsernameValid = /^[a-z,A-Z]{2,}$/.test(signUpFormData.userName);
+    const isUsernameValid = /^[a-zA-Z]{2,}$/.test(signUpFormData.userName);
     const isPasswordConfirmed = signUpFormData.password === signUpFormData.confirmPassword;
   
-    return (
-      signUpFormData &&
-      isUsernameValid &&
-      isValidEmail &&
-      isValidPassword &&
-      isPasswordConfirmed
-    );
+    return isUsernameValid && isValidEmail && isValidPassword && isPasswordConfirmed;
   }
+  
   
 
   console.log(signInFormData);
@@ -109,6 +109,7 @@ function AuthPage() {
                   setFormData={setSignUpFormData}
                   isButtonDisabled={!checkIfSignUpFormIsValid()}
                   handleSubmit={handleRegisterUser}
+                  
                 />
               </CardContent>
             </Card>

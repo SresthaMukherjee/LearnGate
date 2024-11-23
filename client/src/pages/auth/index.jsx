@@ -100,6 +100,9 @@ function AuthPage() {
                 <CardDescription>
                   Enter your details to get started
                 </CardDescription>
+                <CardDescription className="text-red-700 text-xs font-bold">
+                  **Kindly Remember Your Email and Password. There is No Recovery Option Right Now.
+                </CardDescription>
               </CardHeader>
               <CardContent className="space-y-2">
                 <CommonForm

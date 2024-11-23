@@ -34,7 +34,7 @@ const AboutUs = () => {
           <ul className="flex space-x-6">
             <li>
               <Link to="/home" className="text-white hover:text-gray-300">
-                Go Back
+                Home
               </Link>
             </li>
             {/* Conditional rendering for the login button */}

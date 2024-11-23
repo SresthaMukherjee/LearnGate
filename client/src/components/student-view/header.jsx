@@ -27,7 +27,7 @@ function StudentViewCommonHeader() {
   return (
     <header className="flex items-center justify-between p-4 border-b relative">
       <div className="flex items-center space-x-4">
-        <Link to="/home" className="flex items-center hover:text-black">
+        
           
           <img
             src="/LearnGate_Logo.png"
@@ -35,7 +35,7 @@ function StudentViewCommonHeader() {
             style={{ width: '200px', height: 'auto' }}
             className="mr-4"
           />
-        </Link>
+        
         <div className="flex items-center space-x-1">
           <Button
             variant="ghost"
@@ -62,13 +62,21 @@ function StudentViewCommonHeader() {
           </Button>
         </div>
       </div>
+
+      
+              
       <div className="flex items-center space-x-4">
         <div className="flex gap-4 items-center">
+          <div>
+          <Link to="/Home" className="text-white hover:text-gray-300 font-black text-xl">
+                Home
+              </Link>
+          </div>
           <div
             onClick={() => navigate("/student-courses")}
             className="flex cursor-pointer items-center gap-3"
           >
-            <span className="font-extrabold md:text-xl text-[14px]">
+            <span className="font-extrabold md:text-xl text-[14px] hover:text-gray-500">
               My Courses
             </span>
             <TvMinimalPlay className="w-8 h-8 cursor-pointer" />

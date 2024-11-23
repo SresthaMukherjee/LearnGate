@@ -16,14 +16,37 @@ import { InstructorContext } from "@/context/instructor-context";
 import { Delete, Edit } from "lucide-react";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
-function InstructorCourses({ listOfCourses }) {
+function InstructorCourses({ listOfCourses, refreshCourses }) {
   const navigate = useNavigate();
   const {
     setCurrentEditedCourseId,
     setCourseLandingFormData,
     setCourseCurriculumFormData,
   } = useContext(InstructorContext);
+
+  // Function to handle course deletion
+  const handleDeleteCourse = async (courseId) => {
+    const confirmation = window.confirm("Are you sure you want to delete this course?");
+    if (!confirmation) return;
+
+    try {
+      // API call to delete the course by ID
+      const response = await axios.delete(`/${courseId}`); 
+
+      if (response.data.success) {
+        alert("Course deleted successfully.");
+        // Refresh the course list after deletion if the callback is provided
+        if (refreshCourses) refreshCourses();
+      } else {
+        alert(response.data.message || "Failed to delete the course.");
+      }
+    } catch (error) {
+      console.error("Error deleting course:", error);
+      alert("An error occurred while deleting the course.");
+    }
+  };
 
   return (
     <Card>
@@ -47,10 +70,10 @@ function InstructorCourses({ listOfCourses }) {
             <TableHeader>
               <TableRow>
                 <TableHead>Course</TableHead>
-                <TableHead>Instructor</TableHead> {/* Added Instructor Column */}
-                <TableHead>Language</TableHead> {/* Added Language Column */}
-                <TableHead>Category</TableHead> {/* Added Category Column */}
-                <TableHead>Level</TableHead> {/* Added Level Column */}
+                <TableHead>Instructor</TableHead>
+                <TableHead>Language</TableHead>
+                <TableHead>Category</TableHead>
+                <TableHead>Level</TableHead>
                 <TableHead>Students</TableHead>
                 <TableHead>Revenue</TableHead>
                 <TableHead className="text-right">Actions</TableHead>
@@ -63,10 +86,10 @@ function InstructorCourses({ listOfCourses }) {
                       <TableCell className="font-medium">
                         {course?.title}
                       </TableCell>
-                      <TableCell>{course?.instructorName}</TableCell> {/* Displaying Instructor Name */}
-                      <TableCell>{course?.primaryLanguage}</TableCell> {/* Displaying Language */}
-                      <TableCell>{course?.category}</TableCell> {/* Displaying Category */}
-                      <TableCell>{course?.level}</TableCell> {/* Displaying Course Level */}
+                      <TableCell>{course?.instructorName}</TableCell>
+                      <TableCell>{course?.primaryLanguage}</TableCell>
+                      <TableCell>{course?.category}</TableCell>
+                      <TableCell>{course?.level}</TableCell>
                       <TableCell>{course?.students?.length}</TableCell>
                       <TableCell>
                         ${course?.students?.length * course?.pricing}
@@ -81,7 +104,11 @@ function InstructorCourses({ listOfCourses }) {
                         >
                           <Edit className="h-6 w-6" />
                         </Button>
-                        <Button variant="ghost" size="sm">
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          onClick={() => handleDeleteCourse(course._id)}
+                        >
                           <Delete className="h-6 w-6" />
                         </Button>
                       </TableCell>

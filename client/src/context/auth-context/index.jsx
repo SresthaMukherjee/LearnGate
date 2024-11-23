@@ -72,7 +72,11 @@ export default function AuthProvider({ children }) {
       if (data.success) {
         setSignUpFormData(initialSignUpFormData); // Reset form
         alert("Registration successful!");
-        navigate("/"); // Redirect to the home page
+        setAuth({
+          authenticate: true,
+          user: data.data.user,
+        });
+        
       } else {
         alert(data.message || "Registration failed. Please try again.");
       }
@@ -89,6 +93,7 @@ export default function AuthProvider({ children }) {
     console.log(data, "datadatadatadatadata");
 
     if (data.success) {
+      alert("login successful!");
       sessionStorage.setItem(
         "accessToken",
         JSON.stringify(data.data.accessToken)
@@ -98,6 +103,7 @@ export default function AuthProvider({ children }) {
         user: data.data.user,
       });
     } else {
+      alert("Login failed! please check your ");
       setAuth({
         authenticate: false,
         user: null,

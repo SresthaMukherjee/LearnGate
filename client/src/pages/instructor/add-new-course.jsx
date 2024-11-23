@@ -195,12 +195,8 @@ function AddNewCoursePage() {
               </TabsContent>
               <TabsContent value="course-landing-page">
                 <CourseLanding />
-                {/* File input for selecting the file to upload */}
-                <input
-                  type="file"
-                  onChange={handleFileChange}
-                  className="mt-4"
-                />
+           
+                
               </TabsContent>
               <TabsContent value="settings">
                 <CourseSettings />

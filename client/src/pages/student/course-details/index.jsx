@@ -168,12 +168,11 @@ async function fetchStudentViewCourseDetails() {
               <CardTitle>What you'll learn</CardTitle>
             </CardHeader>
             <CardContent>
-              <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
+              <ul className="grid grid-cols-1 ">
                 {studentViewCourseDetails?.objectives
                   .split(",")
                   .map((objective, index) => (
-                    <li key={index} className="flex items-start">
-                      <CheckCircle className="mr-2 h-5 w-5 text-green-500 flex-shrink-0" />
+                    <li key={index} className="">
                       <span>{objective}</span>
                     </li>
                   ))}

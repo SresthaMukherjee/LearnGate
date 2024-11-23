@@ -171,13 +171,13 @@ function StudentViewCourseProgressPage() {
             <TabsList className="grid bg-[#0e182d] w-full grid-cols-2 p-0 h-14">
               <TabsTrigger
                 value="content"
-                className=" text-white rounded-none h-full"
+                className=" text-white rounded-none h-full  hover:bg-slate-300 hover:text-black"
               >
                 Course Content
               </TabsTrigger>
               <TabsTrigger
                 value="overview"
-                className=" text-white rounded-none h-full"
+                className=" text-white rounded-none h-full hover:bg-slate-300 hover:text-black"
               >
                 Overview
               </TabsTrigger>

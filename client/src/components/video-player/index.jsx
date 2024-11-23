@@ -165,7 +165,7 @@ function VideoPlayer({
                 variant="ghost"
                 size="icon"
                 onClick={handlePlayAndPause}
-                className="text-white bg-transparent hover:text-white "
+                className="text-white bg-transparent hover:text-white hover:bg-gray-700"
               >
                 {playing ? (
                   <Pause className="h-6 w-6" />

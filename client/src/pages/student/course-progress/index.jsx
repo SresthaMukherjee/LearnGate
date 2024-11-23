@@ -168,7 +168,7 @@ function StudentViewCourseProgressPage() {
           }`}
         >
           <Tabs defaultValue="content" className="h-full flex flex-col">
-            <TabsList className="grid bg-[#1c1d1f] w-full grid-cols-2 p-0 h-14">
+            <TabsList className="grid bg-[#0e182d] w-full grid-cols-2 p-0 h-14">
               <TabsTrigger
                 value="content"
                 className=" text-white rounded-none h-full"

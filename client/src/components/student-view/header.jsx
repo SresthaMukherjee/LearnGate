@@ -7,7 +7,7 @@ import { AuthContext } from "@/context/auth-context";
 function StudentViewCommonHeader() {
   const navigate = useNavigate();
   const { resetCredentials } = useContext(AuthContext);
-  const [searchQuery, setSearchQuery] = useState("");
+  
 
   function handleLogout() {
     resetCredentials();
@@ -16,12 +16,6 @@ function StudentViewCommonHeader() {
 
   function handleSearchChange(event) {
     setSearchQuery(event.target.value);
-  }
-
-  function handleSearch() {
-    if (searchQuery.trim()) {
-      navigate(`/search?query=${encodeURIComponent(searchQuery)}`);
-    }
   }
 
   return (
@@ -49,18 +43,7 @@ function StudentViewCommonHeader() {
             Explore Courses
           </Button>
         </div>
-        <div className="flex items-center space-x-2">
-          <input
-            type="text"
-            placeholder="Search courses..."
-            value={searchQuery}
-            onChange={handleSearchChange}
-            className="border rounded-md p-2 text-[14px] md:text-[16px] focus:outline-none"
-          />
-          <Button onClick={handleSearch} variant="ghost">
-            <Search className="w-5 h-5" />
-          </Button>
-        </div>
+        
       </div>
 
       

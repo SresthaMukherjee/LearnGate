@@ -32,9 +32,10 @@ function InstructorCourses({ listOfCourses, refreshCourses }) {
     if (!confirmation) return;
 
     try {
+      console.log("Attempting to delete course:", courseId);
       // API call to delete the course by ID
       const response = await axios.delete(`/${courseId}`); 
-
+      console.log("Delete response:", response.data)
       if (response.data.success) {
         alert("Course deleted successfully.");
         // Refresh the course list after deletion if the callback is provided

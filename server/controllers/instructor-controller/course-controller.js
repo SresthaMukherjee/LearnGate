@@ -96,9 +96,41 @@ const updateCourseByID = async (req, res) => {
   }
 };
 
+const deleteCourseByID = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    // Attempt to find and delete the course by ID
+    const deletedCourse = await Course.findByIdAndDelete(id);
+
+    // If no course is found, return a 404 error
+    if (!deletedCourse) {
+      return res.status(404).json({
+        success: false,
+        message: "Course not found!",
+      });
+    }
+
+    // Return a success response
+    res.status(200).json({
+      success: true,
+      message: "Course deleted successfully",
+    });
+  } catch (e) {
+    // Log the error and return a 500 response
+    console.error("Error deleting course:", e);
+    res.status(500).json({
+      success: false,
+      message: "An error occurred while deleting the course.",
+    });
+  }
+};
+
+
 module.exports = {
   addNewCourse,
   getAllCourses,
   updateCourseByID,
   getCourseDetailsByID,
+  deleteCourseByID,
 };

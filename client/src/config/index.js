@@ -131,11 +131,11 @@ export const courseLandingPageFormControls = [
     options: languageOptions,
   },
   {
-    name: "subtitle",
-    label: "Subtitle",
+    name: "admin",
+    label: "Instructor",
     componentType: "input",
     type: "text",
-    placeholder: "Enter course subtitle",
+    placeholder: "Enter course Instructor",
   },
   {
     name: "description",

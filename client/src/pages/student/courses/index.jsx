@@ -230,7 +230,7 @@ function StudentViewCoursesPage() {
                         <p className="text-sm text-gray-400 mb-1">
                           Created By{" "}
                           <span className="font-bold text-white">
-                            {courseItem?.instructorName}
+                            {courseItem?.admin}
                           </span>
                         </p>
                         <p className="text-[16px] text-gray-400 mt-3 mb-2">

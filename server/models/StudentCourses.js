@@ -7,7 +7,7 @@ const StudentCoursesSchema = new mongoose.Schema({
       courseId: String,
       title: String,
       instructorId: String,
-      instructorName: String,
+      admin: String,
       dateOfPurchase: Date,
       courseImage: String,
     },

@@ -11,7 +11,7 @@ const OrderSchema = new mongoose.Schema({
   paymentId: String,
   payerId: String,
   instructorId: String,
-  instructorName: String,
+  admin: String,
   courseImage: String,
   courseTitle: String,
   courseId: String,

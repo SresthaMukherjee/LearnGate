@@ -107,7 +107,7 @@ function AddNewCoursePage() {
 
     const courseFinalFormData = {
       instructorId: auth?.user?._id,
-      instructorName: auth?.user?.userName,
+      admin: admin,
       date: new Date(),
       ...courseLandingFormData,
       students: [],

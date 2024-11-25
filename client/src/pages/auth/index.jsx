@@ -45,16 +45,17 @@ function AuthPage() {
     const isValidEmail = validEmailDomains.includes(emailDomain);
   
     const isValidPassword = signUpFormData.password.length >= 8;
-    const isUsernameValid = /^[a-zA-Z]{2,}$/.test(signUpFormData.userName);
+    const isUsernameValid = /^[a-zA-Z0-9]{2,}$/.test(signUpFormData.userName);
     const isPasswordConfirmed = signUpFormData.password === signUpFormData.confirmPassword;
   
     return isUsernameValid && isValidEmail && isValidPassword && isPasswordConfirmed;
   }
-  
+  const [errorMessages, setErrorMessages] = useState([]);
+
   
 
   console.log(signInFormData);
-
+  console.log(signUpFormData);
   return (
     <div className="flex flex-col min-h-screen">
       
@@ -63,7 +64,7 @@ function AuthPage() {
   <div className="max-w-screen-xl mx-auto flex justify-between items-center">
     {/* Logo on the left side */}
     <div className="flex items-center">
-      <Link to="/home" className="flex items-center hover:text-black">
+      <Link className="flex items-center hover:text-black">
         <img
           src="/LearnGate_Logo.png"
           alt="LearnGate Logo"
@@ -112,7 +113,7 @@ function AuthPage() {
                   buttonText={"Sign In"}
                   formData={signInFormData}
                   setFormData={setSignInFormData}
-                  isButtonDisabled={!checkIfSignInFormIsValid()}
+                  
                   handleSubmit={handleLoginUser}
                 />
               </CardContent>

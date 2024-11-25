@@ -2,7 +2,6 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { initialSignInFormData, initialSignUpFormData } from "@/config";
 import { checkAuthService, loginService, registerService } from "@/services";
 import { createContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 export const AuthContext = createContext(null);
 
@@ -17,8 +16,6 @@ export default function AuthProvider({ children }) {
     user: null,
   });
   const [loading, setLoading] = useState(true);
-  const [errorMessages, setErrorMessages] = useState([]);
-  const navigate = useNavigate(); // For redirecting after successful registration
 
   function isEmailAllowed(email) {
     const allowedDomains = ["gmail.com", "yahoo.com", "yopmail.com"];
@@ -26,65 +23,89 @@ export default function AuthProvider({ children }) {
     return allowedDomains.includes(emailDomain.toLowerCase());
   }
 
+  function validateSignUpForm() {
+    const { userName, userEmail, password, reEnterPassword } = signUpFormData;
+    const isUsernameValid = /^[A-Za-z]{2,}$/.test(userName);
+    const isPasswordValid = password.length >= 8;
+    const isPasswordMatch = password === reEnterPassword;
+    const isEmailValid = isEmailAllowed(userEmail);
+
+    return (
+      isUsernameValid && isPasswordValid && isPasswordMatch && isEmailValid
+    );
+  }
+
   async function handleRegisterUser(event) {
     event.preventDefault();
-
-    const { userName, userEmail, password, reEnterPassword } = signUpFormData;
-    const errors = [];
-
+  
+    // Extract necessary fields for validation
+    const { userName, userEmail, password, confirmPassword } = signUpFormData;
+  
     // Validation checks
-    if (!/^[A-Za-z]{2,}$/.test(userName)) {
-      errors.push("Username must contain at least 2 letters.");
+    const isUsernameValid = /^[A-Za-z0-9]{2,}$/.test(userName);
+    const isPasswordValid = password.length >= 8;
+    const isPasswordMatch = password === confirmPassword;
+    const isEmailValid = isEmailAllowed(userEmail);
+  
+    // Display detailed alerts and stop execution if validation fails
+    if (!isUsernameValid) {
+      alert("Username must contain at least 2 letters.");
+      return; // Prevents further execution
     }
-    if (!isEmailAllowed(userEmail)) {
-      errors.push("Invalid email domain. Use gmail.com, yahoo.com, or yopmail.com.");
+    if (!isEmailValid) {
+      alert("Invalid email domain. Use gmail.com, yahoo.com, or yopmail.com.");
+      return; // Prevents further execution
     }
-    if (password.length < 8) {
-      errors.push("Password must be at least 8 characters.");
+    if (!isPasswordValid) {
+      alert("Password must be at least 8 characters.");
+      return; // Prevents further execution
     }
-    if (password !== reEnterPassword) {
-      errors.push("Passwords do not match.");
+    if (!isPasswordMatch) {
+      alert("Passwords do not match.");
+      return; // Prevents further execution
     }
-
-    if (errors.length > 0) {
-      setErrorMessages(errors); // Display validation errors
-      return; // Stop further execution if validation fails
-    }
-
+  
+    // Proceed with registration if all validations pass
     try {
       const data = await registerService(signUpFormData);
-
+      
+  
       if (data.success) {
         setSignUpFormData(initialSignUpFormData); // Reset form
-        setErrorMessages([]); // Clear error messages
         alert("Registration Successful!");
+        
         setAuth({
           authenticate: true,
           user: data.data.user,
         });
-        navigate("/home"); // Redirect to home after successful registration
+        
       } else {
-        setErrorMessages([data.message || "Registration failed. Please try again."]);
+        alert(data.message || "Registration failed. Please try again.");
       }
     } catch (error) {
-      setErrorMessages(["An error occurred during registration. Please try again later."]);
+      alert("An error occurred during registration. Please try again later.");
       console.error(error);
     }
   }
+  
 
   async function handleLoginUser(event) {
     event.preventDefault();
     const data = await loginService(signInFormData);
+    console.log(data, "datadatadatadatadata");
 
     if (data.success) {
-      sessionStorage.setItem("accessToken", JSON.stringify(data.data.accessToken));
+      alert("login Successful!");
+      sessionStorage.setItem(
+        "accessToken",
+        JSON.stringify(data.data.accessToken)
+      );
       setAuth({
         authenticate: true,
         user: data.data.user,
       });
-      navigate("/home"); // Redirect to home after successful login
     } else {
-      setErrorMessages(["Login failed! Please check your credentials."]);
+      alert("Login failed! please check your ");
       setAuth({
         authenticate: false,
         user: null,
@@ -100,20 +121,23 @@ export default function AuthProvider({ children }) {
           authenticate: true,
           user: data.data.user,
         });
+        setLoading(false);
       } else {
         setAuth({
           authenticate: false,
           user: null,
         });
+        setLoading(false);
       }
-      setLoading(false);
     } catch (error) {
       console.log(error);
-      setAuth({
-        authenticate: false,
-        user: null,
-      });
-      setLoading(false);
+      if (!error?.response?.data?.success) {
+        setAuth({
+          authenticate: false,
+          user: null,
+        });
+        setLoading(false);
+      }
     }
   }
 
@@ -139,7 +163,6 @@ export default function AuthProvider({ children }) {
         handleLoginUser,
         auth,
         resetCredentials,
-        errorMessages,
       }}
     >
       {loading ? <Skeleton /> : children}

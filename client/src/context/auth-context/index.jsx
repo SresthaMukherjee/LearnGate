@@ -26,18 +26,6 @@ export default function AuthProvider({ children }) {
     return allowedDomains.includes(emailDomain.toLowerCase());
   }
 
-  function validateSignUpForm() {
-    const { userName, userEmail, password, reEnterPassword } = signUpFormData;
-    const isUsernameValid = /^[A-Za-z]{2,}$/.test(userName);
-    const isPasswordValid = password.length >= 8;
-    const isPasswordMatch = password === reEnterPassword;
-    const isEmailValid = isEmailAllowed(userEmail);
-
-    return (
-      isUsernameValid && isPasswordValid && isPasswordMatch && isEmailValid
-    );
-  }
-
   async function handleRegisterUser(event) {
     event.preventDefault();
 
@@ -69,6 +57,7 @@ export default function AuthProvider({ children }) {
       if (data.success) {
         setSignUpFormData(initialSignUpFormData); // Reset form
         setErrorMessages([]); // Clear error messages
+        alert("Registration Successful!");
         setAuth({
           authenticate: true,
           user: data.data.user,

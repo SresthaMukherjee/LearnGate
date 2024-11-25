@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom'; // Make sure you have this import if yo
 
 // Teammate data with image paths directly from the public folder
 const teammates = [
-  { name: 'Srestha Mukherjee', image: '/srestha.jpg' },
-  { name: 'Utsho Saha', image: '/utsho.JPG' },
-  { name: 'Sukanya Dey', image: '/sukanya.jpg' },
-  { name: 'Tripti Das', image: '/tripti.jpg' },
+  { name: 'Srestha Mukherjee', image: "/srestha.png" },
+  { name: 'Utsho Saha', image: "/utsho.jpg" },
+  { name: 'Sukanya Dey', image: "/sukanya.png" },
+  { name: 'Tripti Das', image: "/tripti.png" },
   { name: 'Diganta Chowdhury', image: '/diganta.jpg' },
 ];
 
@@ -20,7 +20,7 @@ const AboutUs = () => {
         <div className="max-w-screen-xl mx-auto flex justify-between items-center">
           {/* Logo Section */}
           <div className="flex items-center space-x-4">
-            <Link to="/home" className="flex items-center hover:text-black">
+            <Link  className="flex items-center hover:text-black">
               <img
                 src="/LearnGate_Logo.png"
                 alt="LearnGate Logo"
@@ -66,16 +66,16 @@ const AboutUs = () => {
         {/* Team Members Section */}
         <div className="mb-10">
           <h2 className="text-3xl font-semibold mb-6 text-center text-indigo-400">Meet the Team</h2>
-          <div className="flex flex-wrap justify-center gap-8">
+          <div className="flex flex-wrap justify-center gap-8 ">
             {teammates.map((teammate, index) => (
               <div
                 key={index}
-                className="bg-gray-800/60 rounded-lg shadow-md p-5 max-w-xs text-center hover:shadow-xl transition-shadow duration-300 backdrop-blur-sm"
+                className="bg-gray-800/60 rounded-lg shadow-md p-5 max-w-xl text-center hover:shadow-xl transition-shadow duration-300 backdrop-blur-sm "
               >
                 <img
                   src={teammate.image}
                   alt={teammate.name}
-                  className="w-32 h-32 mx-auto rounded-full mb-4 border-4 border-indigo-500 shadow-lg"
+                  className="w-32 h-32 mx-auto rounded-full mb-4 border-4 border-indigo-500 shadow-lg "
                 />
                 <h3 className="text-xl font-semibold text-gray-100">{teammate.name}</h3>
               </div>
@@ -87,7 +87,7 @@ const AboutUs = () => {
         <div className="bg-gray-900/60 rounded-lg p-6 shadow-lg text-center backdrop-blur-sm">
           <h2 className="text-3xl font-semibold mb-4 text-indigo-400">Our Location</h2>
           <p className="text-gray-400 leading-relaxed">
-            We are based in XYZ City, providing our services globally. Our team operates remotely, 
+            We are based in Kolkata, providing our services globally. Our team operates remotely, 
             allowing us to collaborate across different time zones and deliver the best results to our users.
           </p>
         </div>

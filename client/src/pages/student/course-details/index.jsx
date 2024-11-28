@@ -88,7 +88,7 @@ async function fetchStudentViewCourseDetails() {
       paymentId: "",
       payerId: "",
       instructorId: studentViewCourseDetails?.instructorId,
-      admin: studentViewCourseDetails?.admin,
+      instruct: studentViewCourseDetails?.instruct,
       courseImage: studentViewCourseDetails?.image,
       courseTitle: studentViewCourseDetails?.title,
       courseId: studentViewCourseDetails?._id,
@@ -147,7 +147,7 @@ async function fetchStudentViewCourseDetails() {
         </h1>
        
         <div className="flex items-center space-x-4 mt-2 text-sm">
-          <span>Created By {studentViewCourseDetails?.admin}</span>
+          <span>Created By {studentViewCourseDetails?.instruct}</span>
           <span>Created On {studentViewCourseDetails?.date.split("T")[0]}</span>
           <span className="flex items-center">
             <Globe className="mr-1 h-4 w-4" />

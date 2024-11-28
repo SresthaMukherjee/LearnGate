@@ -11,7 +11,7 @@ const LectureSchema = new mongoose.Schema({
 const CourseSchema = new mongoose.Schema({
 
   instructorId: String,
-  admin: String,
+  instruct: String,
   date: Date,
   title: String,
   category: String,

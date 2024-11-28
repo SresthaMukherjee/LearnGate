@@ -87,7 +87,7 @@ function InstructorCourses({ listOfCourses, refreshCourses }) {
                       <TableCell className="font-medium">
                         {course?.title}
                       </TableCell>
-                      <TableCell>{course?.admin}</TableCell>
+                      <TableCell>{course?.instruct}</TableCell>
                       <TableCell>{course?.primaryLanguage}</TableCell>
                       <TableCell>{course?.category}</TableCell>
                       <TableCell>{course?.level}</TableCell>

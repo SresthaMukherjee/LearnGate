@@ -39,7 +39,7 @@ function StudentCoursesPage() {
                 />
                 <h3 className="font-bold mb-1">{course?.title}</h3>
                 <p className="text-sm text-gray-700 mb-2">
-                  {course?.instructorName}
+                  {course?.instruct}
                 </p>
               </CardContent>
               <CardFooter>

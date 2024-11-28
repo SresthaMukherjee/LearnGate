@@ -188,7 +188,7 @@ function StudentHomePage() {
                       {courseItem?.title}
                     </h3>
                     <p className="text-sm text-gray-300 mb-2 font-bold">
-                      {courseItem?.admin}
+                      {courseItem?.instruct}
                     </p>
                     <p className="font-bold text-[16px] text-white hover:font-extrabold">
                       ${courseItem?.pricing}

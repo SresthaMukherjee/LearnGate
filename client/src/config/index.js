@@ -131,7 +131,7 @@ export const courseLandingPageFormControls = [
     options: languageOptions,
   },
   {
-    name: "admin",
+    name: "instruct",
     label: "Instructor",
     componentType: "input",
     type: "text",
@@ -171,7 +171,7 @@ export const courseLandingInitialFormData = {
   category: "",
   level: "",
   primaryLanguage: "",
-  subtitle: "",
+  instruct: "",
   description: "",
   pricing: "",
   objectives: "",

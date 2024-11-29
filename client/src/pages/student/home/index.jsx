@@ -174,7 +174,7 @@ function StudentHomePage() {
                 <div
                   key={courseItem?._id}
                   onClick={() => handleCourseNavigate(courseItem?._id)}
-                  className="border rounded-lg overflow-hidden shadow cursor-pointer bg-white transition duration-300 ease-in-out hover:bg-gray-800 hover:scale-105"
+                  className="border rounded-lg overflow-hidden shadow cursor-pointer bg-gray-900 transition duration-300 ease-in-out hover:scale-105"
                 >
                   <img
                     src={courseItem?.image}

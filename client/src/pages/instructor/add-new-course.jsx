@@ -107,7 +107,7 @@ function AddNewCoursePage() {
 
     const courseFinalFormData = {
       instructorId: auth?.user?._id,
-      instruct: instruct,
+      instructor: auth?.user?.userName,
       date: new Date(),
       ...courseLandingFormData,
       students: [],
@@ -185,10 +185,8 @@ function AddNewCoursePage() {
             <Tabs defaultValue="curriculum" className="space-y-4">
               <TabsList>
                 <TabsTrigger value="curriculum">Curriculum</TabsTrigger>
-                <TabsTrigger value="course-landing-page">
-                  Course Landing Page
-                </TabsTrigger>
                 <TabsTrigger value="settings">Settings</TabsTrigger>
+                <TabsTrigger value="course-landing-page">Course Landing Page</TabsTrigger>
               </TabsList>
               <TabsContent value="curriculum">
                 <CourseCurriculum />

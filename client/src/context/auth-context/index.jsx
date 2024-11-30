@@ -42,14 +42,14 @@ export default function AuthProvider({ children }) {
     const { userName, userEmail, password, confirmPassword } = signUpFormData;
   
     // Validation checks
-    const isUsernameValid = /^[A-Za-z0-9]{2,}$/.test(userName);
+    const isUsernameValid = /^[A-Za-z0-9 ]{2,}$/.test(userName);
     const isPasswordValid = password.length >= 8;
     const isPasswordMatch = password === confirmPassword;
     const isEmailValid = isEmailAllowed(userEmail);
   
     // Display detailed alerts and stop execution if validation fails
     if (!isUsernameValid) {
-      alert("Username must contain at least 2 letters.");
+      alert("Username must contain at least 2 letters. ");
       return; // Prevents further execution
     }
     if (!isEmailValid) {

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'; // Make sure you have this import if yo
 // Teammate data with image paths directly from the public folder
 const teammates = [
   { name: 'Srestha Mukherjee', image: "/srestha.png" },
-  { name: 'Utsho Saha', image: "/utsho.jpg" },
+  { name: 'Utsho Saha', image: "/utsho.JPG" },
   { name: 'Sukanya Dey', image: "/sukanya.png" },
   { name: 'Tripti Das', image: "/tripti.png" },
   { name: 'Diganta Chowdhury', image: '/diganta.jpg' },
@@ -16,38 +16,43 @@ const AboutUs = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Navbar */}
-      <nav className="bg-gray-800 p-4">
-        <div className="max-w-screen-xl mx-auto flex justify-between items-center">
-          {/* Logo Section */}
-          <div className="flex items-center space-x-4">
-            <Link  className="flex items-center hover:text-black">
-              <img
-                src="/LearnGate_Logo.png"
-                alt="LearnGate Logo"
-                style={{ width: '200px', height: 'auto' }}
-                className="mr-4"
-              />
-            </Link>
-          </div>
-
-          {/* Navbar Links */}
-          <ul className="flex space-x-6">
-            <li>
-              <Link to="/home" className="text-white hover:text-gray-300">
+      <nav className="bg-gray-900 mx-auto">
+      <div className="flex items-center  justify-between p-3 ">
+        {/* Logo */}
+        <div className="flex items-center space-x-4">
+          <img
+            src="/LearnGate_Logo.png"
+            alt="LearnGate Logo"
+            style={{ width: "250px", height: "auto" }}
+            className="ml-8"
+          />
+        </div>
+  
+        {/* Navbar Links aligned to the right */}
+        <div className="flex items-center space-x-4">
+          <div className="flex gap-5 items-center mr-20">
+            {/* Home */}
+            <div>
+              <Link to="/Home" className="text-white hover:text-gray-300 font-bold">
                 Home
               </Link>
-            </li>
-            {/* Conditional rendering for the login button */}
-            {!auth?.user && (
-              <li>
-                <Link to="/courses" className="text-white hover:text-gray-300">
-                  Explore Courses
-                </Link>
-              </li>
-            )}
-          </ul>
+            </div>
+           
+            
+            {/* Login or Greeting */}
+            <div>
+              {!auth?.user && (
+            
+                  <Link to="/courses" className="text-white hover:text-gray-300 font-bold">
+                    Explore Courses
+                  </Link>
+                
+              )}
+            </div>
+          </div>
         </div>
-      </nav>
+      </div>
+    </nav>
 
       {/* Main Content */}
       <div className="bg-black text-white min-h-screen p-8">

@@ -60,30 +60,31 @@ function AuthPage() {
     <div className="flex flex-col min-h-screen">
       
 
-      <nav className="bg-gray-900 p-4">
-  <div className="max-w-screen-xl mx-auto flex justify-between items-center">
-    {/* Logo on the left side */}
-    <div className="flex items-center">
-      <Link className="flex items-center hover:text-black">
-        <img
-          src="/LearnGate_Logo.png"
-          alt="LearnGate Logo"
-          style={{ width: "200px", height: "auto" }}
-          className="mr-4"
-        />
-      </Link>
-    </div>
-
-    {/* Navbar Links aligned to the right */}
-    <ul className="flex space-x-6 items-center ml-auto">
-      <li>
-        <Link to="/home" className="text-white hover:text-gray-300">
-          Home
-        </Link>
-      </li>
-    </ul>
-  </div>
-</nav>
+      <nav className="bg-gray-900 ">
+      <div className="flex items-center  justify-between p-3 ">
+        {/* Logo */}
+        <div className="flex items-center space-x-4 ml-20">
+          <img
+            src="/LearnGate_Logo.png"
+            alt="LearnGate Logo"
+            style={{ width: "250px", height: "auto" }}
+            className="ml-8"
+          />
+        </div>
+  
+        {/* Navbar Links aligned to the right */}
+        <div className="flex items-center space-x-4">
+          <div className="flex gap-5 items-center mr-48">
+            {/* Home */}
+            <div>
+              <Link to="/Home" className="text-white hover:text-gray-300 font-bold">
+                Home
+              </Link>
+            </div> 
+          </div>
+        </div>
+      </div>
+    </nav>
 
 
 

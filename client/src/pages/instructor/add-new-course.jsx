@@ -110,7 +110,7 @@ function AddNewCoursePage() {
       instructor: auth?.user?.userName,
       date: new Date(),
       ...courseLandingFormData,
-      students: [],
+      //students: [],
       curriculum: courseCurriculumFormData,
       isPublised: true,
       uploadedFileUrl, // Add the uploaded file URL to the course data

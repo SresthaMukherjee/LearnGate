@@ -40,7 +40,7 @@ function AuthPage() {
       return false;
     }
   
-    const validEmailDomains = ["gmail.com", "yahoo.com", "yopmail.com"];
+    const validEmailDomains = ["gmail.com", "yahoo.com",];
     const emailDomain = signUpFormData.userEmail.split("@").pop().toLowerCase();
     const isValidEmail = validEmailDomains.includes(emailDomain);
   

@@ -1,7 +1,7 @@
-import { Skeleton } from "@/components/ui/skeleton";
-import { initialSignInFormData, initialSignUpFormData } from "@/config";
-import { checkAuthService, loginService, registerService } from "@/services";
-import { createContext, useEffect, useState } from "react";
+import { Skeleton } from "@/components/ui/skeleton"; //skeleton is a loading placeholder
+import { initialSignInFormData, initialSignUpFormData } from "@/config"; //Imports initial form data templates for sign-in and sign-up forms.
+import { checkAuthService, loginService, registerService } from "@/services";//Imports API service functions for checking authentication, logging in, and registering users
+import { createContext, useEffect, useState } from "react";//React hooks
 
 export const AuthContext = createContext(null);
 
@@ -18,7 +18,7 @@ export default function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
 
   function isEmailAllowed(email) {
-    const allowedDomains = ["gmail.com", "yahoo.com", "yopmail.com"];
+    const allowedDomains = ["gmail.com", "yahoo.com"];
     const emailDomain = email.split("@")[1];
     return allowedDomains.includes(emailDomain.toLowerCase());
   }

@@ -46,7 +46,7 @@ function InstructorDashboardpage() {
 
   function handleLogout() {
     resetCredentials();
-    sessionStorage.clear();
+    // sessionStorage.clear();
   }
 
   console.log(instructorCoursesList, "instructorCoursesList");

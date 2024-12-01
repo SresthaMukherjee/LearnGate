@@ -22,10 +22,8 @@ const PasswordToggle = ({ isPasswordVisible, toggleShowPassword, fieldName }) =>
 );
 
 function FormControls({ formControls = [], formData, setFormData, errors }) {
-  // Local state to handle show/hide for password fields
   const [showPassword, setShowPassword] = useState({});
 
-  // Toggles visibility of a password field
   const toggleShowPassword = (fieldName) => {
     setShowPassword((prev) => ({
       ...prev,
@@ -52,11 +50,13 @@ function FormControls({ formControls = [], formData, setFormData, errors }) {
               onChange={(event) =>
                 setFormData({
                   ...formData,
-                  [controlItem.name]: event.target.value,
+                  [controlItem.name]:
+                    controlItem.name === "userEmail"
+                      ? event.target.value.toLowerCase() // Convert email to lowercase
+                      : event.target.value,
                 })
               }
             />
-            {/* Toggle button for password fields */}
             {isPasswordField && (
               <PasswordToggle
                 isPasswordVisible={isPasswordVisible}
@@ -82,13 +82,11 @@ function FormControls({ formControls = [], formData, setFormData, errors }) {
               <SelectValue placeholder={controlItem.label} />
             </SelectTrigger>
             <SelectContent>
-              {controlItem.options && controlItem.options.length > 0
-                ? controlItem.options.map((optionItem) => (
-                    <SelectItem key={optionItem.id} value={optionItem.id}>
-                      {optionItem.label}
-                    </SelectItem>
-                  ))
-                : null}
+              {controlItem.options?.map((optionItem) => (
+                <SelectItem key={optionItem.id} value={optionItem.id}>
+                  {optionItem.label}
+                </SelectItem>
+              ))}
             </SelectContent>
           </Select>
         );
@@ -137,8 +135,7 @@ function FormControls({ formControls = [], formData, setFormData, errors }) {
         <div key={controlItem.name}>
           <Label htmlFor={controlItem.name}>{controlItem.label}</Label>
           {renderComponentByType(controlItem)}
-          {/* Display validation error if any */}
-          {errors && errors[controlItem.name] && (
+          {errors?.[controlItem.name] && (
             <div className="text-red-500 text-xs">{errors[controlItem.name]}</div>
           )}
         </div>

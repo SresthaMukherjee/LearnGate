@@ -115,7 +115,7 @@ function StudentHomePage() {
                 </Link>
               ) : (
                 <span className="text-white font-bold">
-                  {auth?.user?.userEmail ? `Hello, ${auth.user.userName.split(' ')[0].charAt(0).toUpperCase()}` : "Hello, User"}
+                  {auth?.user?.userEmail ? `Hello, ${auth.user.userName.split(' ')[0].toUpperCase()}` : "Hello, User"}
                 </span>
               )}
             </div>

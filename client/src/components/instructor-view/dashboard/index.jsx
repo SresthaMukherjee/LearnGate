@@ -19,6 +19,7 @@ function InstructorDashboard({ listOfCourses }) {
 
         course.students.forEach((student) => {
           acc.studentList.push({
+            Instruct: course.instruct,
             courseTitle: course.title,
             studentName: student.studentName,
             studentEmail: student.studentEmail,
@@ -46,7 +47,7 @@ function InstructorDashboard({ listOfCourses }) {
   const config = [
     {
       icon: Users,
-      label: "Total Students",
+      label: "Total Purchased User",
       value: calculateTotalStudentsAndProfit().totalStudents,
     },
     {
@@ -83,8 +84,9 @@ function InstructorDashboard({ listOfCourses }) {
               <TableHeader>
                 <TableRow>
                   <TableHead>Course Name</TableHead>
-                  <TableHead>Student Name</TableHead>
-                  <TableHead>Student Email</TableHead>
+                  <TableHead>Instructor Name</TableHead>
+                  <TableHead>User Name</TableHead>
+                  <TableHead>User Email</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -94,6 +96,7 @@ function InstructorDashboard({ listOfCourses }) {
                       <TableCell className="font-medium">
                         {studentItem.courseTitle}
                       </TableCell>
+                      <TableCell>{studentItem.Instruct}</TableCell>
                       <TableCell>{studentItem.studentName}</TableCell>
                       <TableCell>{studentItem.studentEmail}</TableCell>
                     </TableRow>

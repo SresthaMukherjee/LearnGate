@@ -83,7 +83,7 @@ export default function AuthProvider({ children }) {
         alert(data.message || "Registration failed. Please try again.");
       }
     } catch (error) {
-      alert("An error occurred during registration. Please try again later.");
+      alert("Your Email or User Name is Exist.Please Change It");
       console.error(error);
     }
   }

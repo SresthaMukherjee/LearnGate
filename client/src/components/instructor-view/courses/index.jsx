@@ -75,7 +75,7 @@ function InstructorCourses({ listOfCourses, refreshCourses }) {
                 <TableHead>Language</TableHead>
                 <TableHead>Category</TableHead>
                 <TableHead>Level</TableHead>
-                <TableHead>Students</TableHead>
+                <TableHead>Users</TableHead>
                 <TableHead>Revenue</TableHead>
                 <TableHead className="text-right">Actions</TableHead>
               </TableRow>

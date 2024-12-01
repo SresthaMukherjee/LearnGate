@@ -14,10 +14,7 @@ function StudentViewCommonHeader() {
     sessionStorage.clear();
   }
 
-  function handleSearchChange(event) {
-    setSearchQuery(event.target.value);
-  }
-
+  
   return (
     <header className="flex items-center justify-between p-4 border-b relative">
       <div className="flex items-center space-x-4">

@@ -18,7 +18,7 @@ export default function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
 
   function isEmailAllowed(email) {
-    const allowedDomains = ["gmail.com", "yahoo.com"];
+    const allowedDomains = ["gmail.com", "yahoo.com","outlook.com"];
     const emailDomain = email.split("@")[1];
     return allowedDomains.includes(emailDomain.toLowerCase());
   }
@@ -53,7 +53,7 @@ export default function AuthProvider({ children }) {
       return; // Prevents further execution
     }
     if (!isEmailValid) {
-      alert("Invalid email domain. Use gmail.com, yahoo.com, or yopmail.com.");
+      alert("Invalid email domain. Use gmail.com, yahoo.com or outlook.com.");
       return; // Prevents further execution
     }
     if (!isPasswordValid) {
@@ -93,8 +93,17 @@ export default function AuthProvider({ children }) {
     event.preventDefault();
     const data = await loginService(signInFormData);
     console.log(data, "datadatadatadatadata");
+    if (!isEmailValid) {
+      alert("Invalid email not correct");
+      return; // Prevents further execution
+    }
+    if (!isPasswordValid) {
+      alert("Password not match.");
+      return; // Prevents further execution
+    }
 
     if (data.success) {
+      setSignInFormData(initialSignInFormData);
       alert("login Successful!");
       sessionStorage.setItem(
         "accessToken",

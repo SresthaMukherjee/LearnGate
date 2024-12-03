@@ -20,7 +20,7 @@ export default function AuthProvider({ children }) {
 
   function isEmailAllowed(email) {
     // Regular expression to validate email with alphanumeric and at least one letter in the local part
-    const emailRegex = /^[a-zA-Z0-9]*[a-zA-Z]+[a-zA-Z0-9]*@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const emailRegex = /^[a-zA-Z0-9]*[a-zA-Z]+[a-zA-Z0-9]*@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
     const allowedDomains = ["gmail.com", "yahoo.com", "outlook.com"];
   
     if (!emailRegex.test(email)) {

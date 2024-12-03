@@ -127,7 +127,7 @@ function AuthPage() {
                   buttonText={"Sign Up"}
                   formData={signUpFormData}
                   setFormData={setSignUpFormData}
-                  handleSubmit={(e) => handleRegisterUser(e, setActiveTab("signin"))}
+                  handleSubmit={(e) => handleRegisterUser(e, setActiveTab)}
                   
                 />
               </CardContent>

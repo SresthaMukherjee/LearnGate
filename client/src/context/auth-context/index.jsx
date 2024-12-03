@@ -35,7 +35,7 @@ export default function AuthProvider({ children }) {
     return allowedDomains.includes(emailDomain.toLowerCase());
   }
   
-  async function handleRegisterUser(event,callback) {
+  async function handleRegisterUser(event) {
     event.preventDefault();
     
   
@@ -66,24 +66,21 @@ export default function AuthProvider({ children }) {
     }
   
     // Proceed with registration if all validations pass
-    try {
-      const data = await registerService(signUpFormData);
-  
-      if (data.success) {
-        setSignUpFormData(initialSignUpFormData); // Reset form
-        alert("Registration Successful!");
-        setAuth({
-          authenticate: true,
-          user: data.data.user,
-        });
-      callback()
-      } else {
-        alert("Registration failed. Your email or username might already exist. Please try again.");
+      try {
+        const data = await registerService(signUpFormData);
+    
+        if (data.success) {
+          setSignUpFormData(initialSignUpFormData); // Reset form
+          alert("Registration Successful! Now You SignIN Yourself...");
+          setActiveTab("signin"); // Redirect to signin tab
+        } else {
+          alert(data.message); // Show error message from backend
+        }
+      } catch (error) {
+        
+        console.error(error);
       }
-    } catch (error) {
-      console.error(error);
     }
-  }
   
   async function handleLoginUser(event) {
     event.preventDefault();

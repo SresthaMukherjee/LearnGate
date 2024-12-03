@@ -1,13 +1,22 @@
 import axiosInstance from "@/api/axiosInstance";
 
 export async function registerService(formData) {
-  const { data } = await axiosInstance.post("/auth/register", {
-    ...formData,
-    role: "user",
-  });
+  try {
+    const response = await axiosInstance.post("/auth/register", {
+      ...formData,
+      role: "user",
+    });
 
-  return data;
+    return response.data; // Return response for success
+  } catch (error) {
+    // Handle both client-side and server-side errors
+    const errorMessage =
+      error.response?.data?.message || "An unexpected error occurred.";
+    return { success: false, message: errorMessage }; // Return consistent structure
+  }
 }
+
+
 
 export async function loginService(formData) {
   try {

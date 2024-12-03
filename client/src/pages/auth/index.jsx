@@ -11,6 +11,7 @@ import { signInFormControls, signUpFormControls } from "@/config";
 import { AuthContext } from "@/context/auth-context";
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 function AuthPage() {
   const [activeTab, setActiveTab] = useState("signin");
@@ -22,7 +23,7 @@ function AuthPage() {
     handleRegisterUser,
     handleLoginUser,
   } = useContext(AuthContext);
-
+  const navigate = useNavigate();
   function handleTabChange(value) {
     setActiveTab(value);
   }
@@ -126,8 +127,7 @@ function AuthPage() {
                   buttonText={"Sign Up"}
                   formData={signUpFormData}
                   setFormData={setSignUpFormData}
-                  
-                  handleSubmit={handleRegisterUser}
+                  handleSubmit={(e) => handleRegisterUser(e, setActiveTab("signin"))}
                   
                 />
               </CardContent>

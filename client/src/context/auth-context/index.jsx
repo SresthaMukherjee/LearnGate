@@ -35,7 +35,7 @@ export default function AuthProvider({ children }) {
     return allowedDomains.includes(emailDomain.toLowerCase());
   }
   
-  async function handleRegisterUser(event) {
+  async function handleRegisterUser(event,callback) {
     event.preventDefault();
     
   
@@ -76,11 +76,11 @@ export default function AuthProvider({ children }) {
           authenticate: true,
           user: data.data.user,
         });
+      callback()
       } else {
-        alert(data.message || "Registration failed. Please try again.");
+        alert("Registration failed. Your email or username might already exist. Please try again.");
       }
     } catch (error) {
-      alert("Registration failed. Your email or username might already exist. Please try again.");
       console.error(error);
     }
   }

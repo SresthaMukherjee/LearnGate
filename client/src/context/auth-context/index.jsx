@@ -6,6 +6,7 @@ import { createContext, useEffect, useState } from "react";//React hooks
 export const AuthContext = createContext(null);
 
 export default function AuthProvider({ children }) {
+  
   const [signInFormData, setSignInFormData] = useState(initialSignInFormData);
   const [signUpFormData, setSignUpFormData] = useState({
     ...initialSignUpFormData,
@@ -18,110 +19,99 @@ export default function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
 
   function isEmailAllowed(email) {
-    const allowedDomains = ["gmail.com", "yahoo.com","outlook.com"];
+    // Regular expression to validate email with alphanumeric and at least one letter in the local part
+    const emailRegex = /^[a-zA-Z0-9]*[a-zA-Z]+[a-zA-Z0-9]*@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const allowedDomains = ["gmail.com", "yahoo.com", "outlook.com"];
+  
+    if (!emailRegex.test(email)) {
+      alert("Invalid email format. Use a valid domain like gmail.com, yahoo.com, or outlook.com.");
+      return false;
+    }
+  
+    // Extract the domain from the email
     const emailDomain = email.split("@")[1];
+  
+    // Check if the domain is in the allowed list
     return allowedDomains.includes(emailDomain.toLowerCase());
   }
-
-  function validateSignUpForm() {
-    const { userName, userEmail, password, reEnterPassword } = signUpFormData;
-    const isUsernameValid = /^[A-Za-z0-9]{2,}$/.test(userName);
-    const isPasswordValid = password.length >= 8;
-    const isPasswordMatch = password === reEnterPassword;
-    const isEmailValid = isEmailAllowed(userEmail);
-
-    return (
-      isUsernameValid && isPasswordValid && isPasswordMatch && isEmailValid
-    );
-  }
-
+  
   async function handleRegisterUser(event) {
     event.preventDefault();
+    
   
     // Extract necessary fields for validation
     const { userName, userEmail, password, confirmPassword } = signUpFormData;
   
     // Validation checks
-    const isUsernameValid = /^[A-Za-z0-9]{2,}$/.test(userName);
-    const isPasswordValid = password.length >= 8;
+    const isUsernameValid = /^(?=.*[A-Za-z])[A-Za-z0-9]{2,}$/.test(userName);
+    const isPasswordValid = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password); // At least one letter, one number, and 8 characters
     const isPasswordMatch = password === confirmPassword;
     const isEmailValid = isEmailAllowed(userEmail);
   
     // Display detailed alerts and stop execution if validation fails
     if (!isUsernameValid) {
-      alert("Username must contain at least 2 letters and No Space contains ");
-      return; // Prevents further execution
+      alert("Username must contain at least 2 letters and must not have spaces.");
+      return;
     }
     if (!isEmailValid) {
-      alert("Invalid email domain. Use gmail.com, yahoo.com or outlook.com.");
-      return; // Prevents further execution
+      return; // Email validation already handled in `isEmailAllowed`
     }
     if (!isPasswordValid) {
-      alert("Password must be at least 8 characters.");
-      return; // Prevents further execution
+      alert("Password must be at least 8 characters long and include at least one letter and one number.");
+      return;
     }
     if (!isPasswordMatch) {
       alert("Passwords do not match.");
-      return; // Prevents further execution
+      return;
     }
   
     // Proceed with registration if all validations pass
     try {
       const data = await registerService(signUpFormData);
-      
   
       if (data.success) {
         setSignUpFormData(initialSignUpFormData); // Reset form
         alert("Registration Successful!");
-        
         setAuth({
           authenticate: true,
           user: data.data.user,
         });
-        
       } else {
         alert(data.message || "Registration failed. Please try again.");
       }
     } catch (error) {
-      alert("Your Email or User Name is Exist.Please Change It");
+      alert("Registration failed. Your email or username might already exist. Please try again.");
       console.error(error);
     }
   }
   
-
   async function handleLoginUser(event) {
     event.preventDefault();
-    const data = await loginService(signInFormData);
-    console.log(data, "datadatadatadatadata");
-    if (!isEmailValid) {
-      alert("Invalid email not correct");
-      return; // Prevents further execution
-    }
-    if (!isPasswordValid) {
-      alert("Password not match.");
-      return; // Prevents further execution
-    }
-
-    if (data.success) {
-      setSignInFormData(initialSignInFormData);
-      alert("login Successful!");
-      sessionStorage.setItem(
-        "accessToken",
-        JSON.stringify(data.data.accessToken)
-      );
-      setAuth({
-        authenticate: true,
-        user: data.data.user,
-      });
-    } else {
-      alert("Login failed! please check your ");
-      setAuth({
-        authenticate: false,
-        user: null,
-      });
+  
+    try {
+      const data = await loginService(signInFormData);
+  
+      if (data.success) {
+        setSignInFormData(initialSignInFormData); // Reset form
+        alert("Login Successful!");
+        sessionStorage.setItem("accessToken", JSON.stringify(data.data.accessToken));
+        setAuth({
+          authenticate: true,
+          user: data.data.user,
+        });
+      } else {
+        alert("Login failed! Email or password is incorrect.");
+        setAuth({
+          authenticate: false,
+          user: null,
+        });
+      }
+    } catch (error) {
+      alert("An error occurred during login. Please try again.");
+      console.error(error);
     }
   }
-
+  
   async function checkAuthUser() {
     try {
       const data = await checkAuthService();

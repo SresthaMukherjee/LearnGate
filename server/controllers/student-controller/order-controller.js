@@ -3,7 +3,7 @@ const Order = require("../../models/Order");
 const Course = require("../../models/Course");
 const StudentCourses = require("../../models/StudentCourses");
 
-const createOrder = async (req, res) => {
+const createOrder = async (req, res) => {   //This function creates a new PayPal payment and saves the order in the database.
   try {
     const {
       userId,
@@ -21,18 +21,18 @@ const createOrder = async (req, res) => {
       courseTitle,
       courseId,
       coursePricing,
-    } = req.body;
+    } = req.body;  //Retrieves data such as user details, course information, and payment details from req.body.
 
-    const create_payment_json = {
-      intent: "sale",
+    const create_payment_json = {  //prepared using the PayPal API
+      intent: "sale",  //Specifies the transaction as a "sale."
       payer: {
         payment_method: "paypal",
       },
-      redirect_urls: {
+      redirect_urls: {   //Handles success and cancellation scenarios using client URLs.
         return_url: `${process.env.CLIENT_URL}/payment-return`,
         cancel_url: `${process.env.CLIENT_URL}/payment-cancel`,
       },
-      transactions: [
+      transactions: [  //Transaction Details includes the item list, pricing, currency, and description.
         {
           item_list: {
             items: [
@@ -54,7 +54,7 @@ const createOrder = async (req, res) => {
       ],
     };
 
-    paypal.payment.create(create_payment_json, async (error, paymentInfo) => {
+    paypal.payment.create(create_payment_json, async (error, paymentInfo) => {  //The paypal.payment.create method initiates the payment process.
       if (error) {
         console.log(error);
         return res.status(500).json({
@@ -62,7 +62,7 @@ const createOrder = async (req, res) => {
           message: "Error while creating paypal payment!",
         });
       } else {
-        const newlyCreatedCourseOrder = new Order({
+        const newlyCreatedCourseOrder = new Order({  //A new Order document is created and saved to the database
           userId,
           userName,
           userEmail,
@@ -80,12 +80,14 @@ const createOrder = async (req, res) => {
           coursePricing,
         });
 
-        await newlyCreatedCourseOrder.save();
+        await newlyCreatedCourseOrder.save(); //This line saves the newlyCreatedCourseOrder instance to the database using the save() method. 
+        //The await keyword ensures that the code waits for the save operation to complete before proceeding to the next steps.
 
-        const approveUrl = paymentInfo.links.find(
+        const approveUrl = paymentInfo.links.find( //This line extracts the approval URL from the PayPal response 
           (link) => link.rel == "approval_url"
         ).href;
 
+        //Sending the Response to the Client:
         res.status(201).json({
           success: true,
           data: {
@@ -96,7 +98,7 @@ const createOrder = async (req, res) => {
       }
     });
   } catch (err) {
-    console.log(err);
+    console.log(err);  //Logs errors and sends a failure response if the PayPal payment creation fails.
     res.status(500).json({
       success: false,
       message: "Some error occured!",
@@ -104,7 +106,7 @@ const createOrder = async (req, res) => {
   }
 };
 
-const capturePaymentAndFinalizeOrder = async (req, res) => {
+const capturePaymentAndFinalizeOrder = async (req, res) => { //This function captures the PayPal payment and finalizes the order
   try {
     const { paymentId, payerId, orderId } = req.body;
 

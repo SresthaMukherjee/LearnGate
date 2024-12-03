@@ -55,7 +55,7 @@ function InstructorCourses({ listOfCourses, refreshCourses }) {
         <CardTitle className="text-3xl font-extrabold">All Courses</CardTitle>
         <Button
           onClick={() => {
-            setCurrentEditedCourseId(courseId);
+            setCurrentEditedCourseId(null);
             setCourseLandingFormData(courseLandingInitialFormData);
             setCourseCurriculumFormData(courseCurriculumInitialFormData);
             navigate("/instructor/create-new-course");

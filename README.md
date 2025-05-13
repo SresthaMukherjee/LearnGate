@@ -116,7 +116,7 @@ Create_New__Course Page:
 
 <img width="600" alt="Screenshot 2025-05-13 at 8 28 23 PM" src="https://github.com/user-attachments/assets/b57ed558-485e-4c17-993d-5faed5eb6225" />
 
-<u>**#FUTURE SCOPE#**</u>
+**#FUTURE SCOPE#**
 
 1. Enhanced Progress Tracking
 

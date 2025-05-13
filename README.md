@@ -1,8 +1,8 @@
 # LearnGate
 
-#GOALS
+#Ovwerview
 
-The goal of this project is to develop a fully functional Online Learning Platform
+The goal of the project is to develop a fully functional Online Learning Platform
 that provides a seamless and user-friendly experience for students, admins,
 and instructors. The platform allows students to easily browse, enroll in, and
 access courses, while also enabling them to interact with course materials and
@@ -32,4 +32,8 @@ advancement.
 
 DATA DESIGN (XML)
 <img width="963" alt="Screenshot 2025-05-13 at 8 28 23 PM" src="https://github.com/user-attachments/assets/60654a98-a3f3-445e-9898-e2a82e23e83e" />
+
+Homepage
+<img width="1007" alt="Screenshot 2025-05-13 at 8 31 08 PM" src="https://github.com/user-attachments/assets/f5e2876b-554f-46b5-a99a-3e6369dee0fc" />
+
 

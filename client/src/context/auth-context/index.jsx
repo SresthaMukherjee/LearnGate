@@ -24,7 +24,7 @@ export default function AuthProvider({ children }) {
     const allowedDomains = ["gmail.com", "yahoo.com", "outlook.com"];
   
     if (!emailRegex.test(email)) {
-      alert("Invalid email format. email not accept only numerics, Use a valid domain like gmail.com, yahoo.com, or outlook.com.");
+      alert("Invalid email format. Use a valid domain like gmail.com, yahoo.com, or outlook.com.");
       return false;
     }
   
@@ -50,7 +50,7 @@ export default function AuthProvider({ children }) {
   
     // Display detailed alerts and stop execution if validation fails
     if (!isUsernameValid) {
-      alert("Username should be 2 character long where it must contain at least 1 letter and not have spaces.");
+      alert("Username must contain at least 2 letters and must not have spaces.");
       return;
     }
     if (!isEmailValid) {

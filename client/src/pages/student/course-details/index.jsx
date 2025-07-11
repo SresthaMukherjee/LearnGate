@@ -17,7 +17,7 @@ import {
   createPaymentService,
   fetchStudentViewCourseDetailsService,
 } from "@/services";
-import { CheckCircle, Globe, Lock, PlayCircle } from "lucide-react";
+import { CheckCircle, Globe, Lock, PlayCircle, Star, Users, Calendar, Award } from "lucide-react";
 import { useContext, useEffect, useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 
@@ -140,110 +140,180 @@ async function fetchStudentViewCourseDetails() {
       : -1;
 
   return (
-    <div className=" mx-auto p-4">
-      <div className="bg-gray-900 text-white p-8 rounded-t-lg">
-        <h1 className="text-3xl font-bold mb-4">
-          {studentViewCourseDetails?.title}
-        </h1>
-       
-        <div className="flex items-center space-x-4 mt-2 text-sm">
-          <span>Created By {studentViewCourseDetails?.instruct}</span>
-          <span>Created On {studentViewCourseDetails?.date.split("T")[0]}</span>
-          <span className="flex items-center">
-            <Globe className="mr-1 h-4 w-4" />
-            {studentViewCourseDetails?.primaryLanguage}
-          </span>
-          <span>
-            {studentViewCourseDetails?.students.length}{" "}
-            {studentViewCourseDetails?.students.length <= 1
-              ? "Student"
-              : "Students"}
-          </span>
-        </div>
-      </div>
-      <div className="flex flex-col md:flex-row gap-8 mt-8">
-        <main className="flex-grow">
-          <Card className="mb-8">
-            <CardHeader>
-              <CardTitle>What you'll learn</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ul className="grid grid-cols-1 ">
-                {studentViewCourseDetails?.objectives
-                  .split(",")
-                  .map((objective, index) => (
-                    <li key={index} className="">
-                      <span>{objective}</span>
-                    </li>
-                  ))}
-              </ul>
-            </CardContent>
-          </Card>
-          <Card className="mb-8">
-            <CardHeader>
-              <CardTitle>Course Description</CardTitle>
-            </CardHeader>
-            <CardContent>{studentViewCourseDetails?.description}</CardContent>
-          </Card>
-          <Card className="mb-8">
-            <CardHeader>
-              <CardTitle>Course Curriculum</CardTitle>
-            </CardHeader>
-            <CardContent>
-              {studentViewCourseDetails?.curriculum?.map(
-                (curriculumItem, index) => (
-                  <li
-                    className={`${
-                      curriculumItem?.freePreview
-                        ? "cursor-pointer"
-                        : "cursor-not-allowed"
-                    } flex items-center mb-4`}
-                    onClick={
-                      curriculumItem?.freePreview
-                        ? () => handleSetFreePreview(curriculumItem)
-                        : null
-                    }
-                  >
-                    {curriculumItem?.freePreview ? (
-                      <PlayCircle className="mr-2 h-4 w-4" />
-                    ) : (
-                      <Lock className="mr-2 h-4 w-4" />
-                    )}
-                    <span>{curriculumItem?.title}</span>
-                  </li>
-                )
-              )}
-            </CardContent>
-          </Card>
-        </main>
-        <aside className="w-full md:w-[500px]">
-          <Card className="sticky top-4">
-            <CardContent className="p-6">
-              <div className="aspect-video mb-4 rounded-lg flex items-center justify-center">
-                <VideoPlayer
-                  url={
-                    getIndexOfFreePreviewUrl !== -1
-                      ? studentViewCourseDetails?.curriculum[
-                          getIndexOfFreePreviewUrl
-                        ].videoUrl
-                      : ""
-                  }
-                  width="450px"
-                  height="200px"
-                />
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-blue-50 to-pink-50">
+      {/* Hero Section */}
+      <div className="relative bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-700 text-white overflow-hidden">
+        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-600/90 via-blue-600/90 to-indigo-700/90"></div>
+        <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white to-purple-200 bg-clip-text text-transparent">
+              {studentViewCourseDetails?.title}
+            </h1>
+            
+            <div className="flex flex-wrap justify-center items-center gap-6 mt-8 text-sm">
+              <div className="flex items-center bg-white/20 backdrop-blur-sm rounded-full px-4 py-2">
+                <Award className="mr-2 h-4 w-4 text-yellow-300" />
+                <span className="font-medium">By {studentViewCourseDetails?.instruct}</span>
               </div>
-              <div className="mb-4">
-                <span className="text-3xl font-bold">
-                ${studentViewCourseDetails?.pricing}
+              <div className="flex items-center bg-white/20 backdrop-blur-sm rounded-full px-4 py-2">
+                <Calendar className="mr-2 h-4 w-4 text-green-300" />
+                <span>Created {studentViewCourseDetails?.date.split("T")[0]}</span>
+              </div>
+              <div className="flex items-center bg-white/20 backdrop-blur-sm rounded-full px-4 py-2">
+                <Globe className="mr-2 h-4 w-4 text-blue-300" />
+                <span>{studentViewCourseDetails?.primaryLanguage}</span>
+              </div>
+              <div className="flex items-center bg-white/20 backdrop-blur-sm rounded-full px-4 py-2">
+                <Users className="mr-2 h-4 w-4 text-pink-300" />
+                <span>
+                  {studentViewCourseDetails?.students.length}{" "}
+                  {studentViewCourseDetails?.students.length <= 1
+                    ? "Student"
+                    : "Students"}
                 </span>
               </div>
-              <Button onClick={handleCreatePayment} className="w-full">
-                Buy Now
-              </Button>
-            </CardContent>
-          </Card>
-        </aside>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <div className="max-w-7xl mx-auto px-4 py-8">
+        <div className="flex flex-col lg:flex-row gap-8">
+          <main className="flex-grow space-y-8">
+            {/* What You'll Learn */}
+            <Card className="border-0 shadow-xl bg-gradient-to-br from-white to-purple-50 overflow-hidden">
+              <CardHeader className="bg-gradient-to-r from-purple-500 to-indigo-500 text-white">
+                <CardTitle className="text-xl font-bold flex items-center">
+                  <Star className="mr-2 h-5 w-5" />
+                  What you'll learn
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="p-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {studentViewCourseDetails?.objectives
+                    .split(",")
+                    .map((objective, index) => (
+                      <div key={index} className="flex items-start space-x-3 p-3 bg-white/70 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200">
+                        <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
+                        <span className="text-gray-700 font-medium">{objective.trim()}</span>
+                      </div>
+                    ))}
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Course Description */}
+            <Card className="border-0 shadow-xl bg-gradient-to-br from-white to-blue-50 overflow-hidden">
+              <CardHeader className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white">
+                <CardTitle className="text-xl font-bold">Course Description</CardTitle>
+              </CardHeader>
+              <CardContent className="p-6">
+                <div className="bg-white/70 rounded-lg p-4 text-gray-700 leading-relaxed">
+                  {studentViewCourseDetails?.description}
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Course Curriculum */}
+            <Card className="border-0 shadow-xl bg-gradient-to-br from-white to-indigo-50 overflow-hidden">
+              <CardHeader className="bg-gradient-to-r from-indigo-500 to-purple-500 text-white">
+                <CardTitle className="text-xl font-bold">Course Curriculum</CardTitle>
+              </CardHeader>
+              <CardContent className="p-6">
+                <div className="space-y-3">
+                  {studentViewCourseDetails?.curriculum?.map(
+                    (curriculumItem, index) => (
+                      <div
+                        key={index}
+                        className={`${
+                          curriculumItem?.freePreview
+                            ? "cursor-pointer hover:bg-green-50 hover:border-green-300 hover:shadow-md"
+                            : "cursor-not-allowed opacity-60"
+                        } flex items-center p-4 bg-white/70 rounded-xl border-2 border-transparent transition-all duration-200`}
+                        onClick={
+                          curriculumItem?.freePreview
+                            ? () => handleSetFreePreview(curriculumItem)
+                            : null
+                        }
+                      >
+                        {curriculumItem?.freePreview ? (
+                          <div className="flex items-center justify-center w-10 h-10 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full mr-4">
+                            <PlayCircle className="h-5 w-5 text-white" />
+                          </div>
+                        ) : (
+                          <div className="flex items-center justify-center w-10 h-10 bg-gradient-to-r from-gray-400 to-gray-500 rounded-full mr-4">
+                            <Lock className="h-5 w-5 text-white" />
+                          </div>
+                        )}
+                        <div className="flex-grow">
+                          <span className="font-medium text-gray-800">{curriculumItem?.title}</span>
+                          {curriculumItem?.freePreview && (
+                            <div className="text-sm text-green-600 font-medium mt-1">
+                              Free Preview Available
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    )
+                  )}
+                </div>
+              </CardContent>
+            </Card>
+          </main>
+
+          {/* Sidebar */}
+          <aside className="w-full lg:w-96">
+            <Card className="sticky top-4 border-0 shadow-2xl bg-gradient-to-br from-white to-pink-50 overflow-hidden">
+              <CardContent className="p-0">
+                <div className="bg-gradient-to-r from-pink-500 to-rose-500 p-6 text-white">
+                  <h3 className="text-lg font-bold mb-2">Start Learning Today</h3>
+                  <p className="text-pink-100 text-sm">Join thousands of students already enrolled</p>
+                </div>
+                
+                <div className="p-6 space-y-6">
+                  <div className="aspect-video rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-gray-100 to-gray-200">
+                    <VideoPlayer
+                      url={
+                        getIndexOfFreePreviewUrl !== -1
+                          ? studentViewCourseDetails?.curriculum[
+                              getIndexOfFreePreviewUrl
+                            ].videoUrl
+                          : ""
+                      }
+                      width="100%"
+                      height="100%"
+                    />
+                  </div>
+                  
+                  <div className="text-center">
+                    <div className="bg-gradient-to-r from-green-400 to-emerald-500 text-white inline-block px-4 py-2 rounded-full mb-2">
+                      <span className="text-sm font-medium">Special Price</span>
+                    </div>
+                    <div className="text-4xl font-bold text-gray-800">
+                      ${studentViewCourseDetails?.pricing}
+                    </div>
+                    <div className="text-sm text-gray-500 mt-1">One-time payment</div>
+                  </div>
+                  
+                  <Button 
+                    onClick={handleCreatePayment} 
+                    className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+                  >
+                    🚀 Enroll Now
+                  </Button>
+                  
+                  <div className="text-center text-sm text-gray-500">
+                    30-day money-back guarantee
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </aside>
+        </div>
+      </div>
+
+      {/* Preview Dialog */}
       <Dialog
         open={showFreePreviewDialog}
         onOpenChange={() => {
@@ -251,32 +321,37 @@ async function fetchStudentViewCourseDetails() {
           setDisplayCurrentVideoFreePreview(null);
         }}
       >
-        <DialogContent className="w-[800px]">
-          <DialogHeader>
-            <DialogTitle>Course Preview</DialogTitle>
+        <DialogContent className="max-w-4xl bg-gradient-to-br from-white to-purple-50 border-0 shadow-2xl">
+          <DialogHeader className="bg-gradient-to-r from-purple-500 to-indigo-500 text-white -m-6 mb-6 p-6 rounded-t-lg">
+            <DialogTitle className="text-xl font-bold">🎬 Course Preview</DialogTitle>
           </DialogHeader>
-          <div className="aspect-video rounded-lg flex items-center justify-center">
-            <VideoPlayer
-              url={displayCurrentVideoFreePreview}
-              width="450px"
-              height="200px"
-            />
+          <div className="space-y-6">
+            <div className="aspect-video rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-gray-100 to-gray-200">
+              <VideoPlayer
+                url={displayCurrentVideoFreePreview}
+                width="100%"
+                height="100%"
+              />
+            </div>
+            <div className="space-y-3">
+              <h4 className="font-semibold text-gray-800 mb-3">Other Free Previews:</h4>
+              {studentViewCourseDetails?.curriculum
+                ?.filter((item) => item.freePreview)
+                .map((filteredItem, index) => (
+                  <div
+                    key={index}
+                    onClick={() => handleSetFreePreview(filteredItem)}
+                    className="cursor-pointer p-3 bg-white/70 rounded-lg border-2 border-transparent hover:border-purple-300 hover:shadow-md transition-all duration-200 flex items-center"
+                  >
+                    <PlayCircle className="h-4 w-4 text-purple-500 mr-3" />
+                    <span className="font-medium text-gray-800">{filteredItem?.title}</span>
+                  </div>
+                ))}
+            </div>
           </div>
-          <div className="flex flex-col gap-2">
-            {studentViewCourseDetails?.curriculum
-              ?.filter((item) => item.freePreview)
-              .map((filteredItem) => (
-                <p
-                  onClick={() => handleSetFreePreview(filteredItem)}
-                  className="cursor-pointer text-[16px] font-medium"
-                >
-                  {filteredItem?.title}
-                </p>
-              ))}
-          </div>
-          <DialogFooter className="sm:justify-start">
+          <DialogFooter className="sm:justify-start mt-6">
             <DialogClose asChild>
-              <Button type="button" variant="secondary">
+              <Button type="button" variant="secondary" className="bg-gray-200 hover:bg-gray-300">
                 Close
               </Button>
             </DialogClose>

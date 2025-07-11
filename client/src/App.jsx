@@ -14,6 +14,7 @@ import PaypalPaymentReturnPage from "./pages/student/payment-return";
 import StudentCoursesPage from "./pages/student/student-courses";
 import StudentViewCourseProgressPage from "./pages/student/course-progress";
 import AboutUs from "./pages/aboutus";
+
 function App() {
   const { auth } = useContext(AuthContext);
 
@@ -45,11 +46,11 @@ function App() {
         }
       />
       <Route>
-      {/* Your existing routes */}
-      <Route path="/aboutus"
-       element={<AboutUs />} />  {/* This should route to the AboutUs page */}
-      {/* Your other routes */}
-    </Route>
+        {/* Your existing routes */}
+        <Route path="/aboutus"
+          element={<AboutUs />} />  {/* This should route to the AboutUs page */}
+        {/* Your other routes */}
+      </Route>
       <Route
         path="/instructor/create-new-course"
         element={
@@ -94,6 +95,9 @@ function App() {
           element={<StudentViewCourseProgressPage />}
         />
       </Route>
+
+
+
 
       {/* Fallback for Undefined Routes */}
       <Route path="*" element={<NotFoundPage />} />

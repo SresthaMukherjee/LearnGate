@@ -96,10 +96,10 @@ function StudentHomePage() {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
-              <Link to="/student-courses" className="text-white hover:text-blue-300 transition-colors flex items-center space-x-2">
+              {/* <Link to="/student-courses" className="text-white hover:text-blue-300 transition-colors flex items-center space-x-2">
                 <User className="h-4 w-4" />
                 <span>Profile</span>
-              </Link>
+              </Link> */}
               <Link to="/aboutus" className="text-white hover:text-blue-300 transition-colors">
                 About
               </Link>
@@ -110,14 +110,18 @@ function StudentHomePage() {
                   </Button>
                 </Link>
               ) : (
-                <div className="flex items-center space-x-3">
-                  <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-2 rounded-full">
-                    <User className="h-4 w-4 text-white" />
+                <Link to="/student-courses" >
+                  <div className="flex items-center space-x-3">
+
+                    <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-2 rounded-full">
+                      <User className="h-5 w-5 text-white" />
+                    </div>
+                    <span className="text-white font-medium">
+                      Hello, {auth?.user?.userName?.split(' ')[0]?.toUpperCase() || "User"}
+                    </span>
+
                   </div>
-                  <span className="text-white font-medium">
-                    Hello, {auth?.user?.userName?.split(' ')[0]?.toUpperCase() || "User"}
-                  </span>
-                </div>
+                </Link>
               )}
             </div>
 
@@ -167,7 +171,7 @@ function StudentHomePage() {
             <div className="lg:w-1/2 space-y-8">
               <div className="space-y-6">
                 <h1 className="text-5xl md:text-6xl font-bold text-white leading-tight">
-                  Learning that 
+                  Learning that
                   <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
                     {" "}transforms
                   </span>
@@ -176,22 +180,16 @@ function StudentHomePage() {
                   Master new skills with our cutting-edge courses. Learn from industry experts and build your future today.
                 </p>
               </div>
-              
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button 
+
+              <div className="relative z-10 pointer-events-auto">
+                <button
                   onClick={() => navigate("/courses")}
-                  className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white border-none text-lg px-8 py-6 rounded-xl"
+                  className="flex items-center bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white text-lg px-8 py-6 rounded-xl transition-all duration-300"
+                  type="button"
                 >
                   Explore Courses
                   <ChevronRight className="ml-2 h-5 w-5" />
-                </Button>
-                <Button 
-                  variant="outline"
-                  className="border-white/20 text-white hover:bg-white/10 text-lg px-8 py-6 rounded-xl"
-                >
-                  <Play className="mr-2 h-5 w-5" />
-                  Watch Demo
-                </Button>
+                </button>
               </div>
 
               {/* Stats */}
@@ -210,7 +208,7 @@ function StudentHomePage() {
                 </div>
               </div>
             </div>
-            
+
             <div className="lg:w-1/2">
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-3xl opacity-20 blur-3xl" />
@@ -232,7 +230,7 @@ function StudentHomePage() {
             <h2 className="text-3xl font-bold text-white mb-4">Why Choose LearnGate?</h2>
             <p className="text-gray-300 text-lg">Experience the future of online learning</p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="group p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-blue-500/50 transition-all duration-300">
               <div className="bg-gradient-to-r from-blue-500 to-purple-600 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
@@ -241,7 +239,7 @@ function StudentHomePage() {
               <h3 className="text-xl font-bold text-white mb-4">Fast Learning</h3>
               <p className="text-gray-300">Accelerate your learning with our optimized curriculum and interactive content.</p>
             </div>
-            
+
             <div className="group p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-purple-500/50 transition-all duration-300">
               <div className="bg-gradient-to-r from-purple-500 to-pink-600 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 <Target className="h-8 w-8 text-white" />
@@ -249,7 +247,7 @@ function StudentHomePage() {
               <h3 className="text-xl font-bold text-white mb-4">Focused Learning</h3>
               <p className="text-gray-300">Personalized learning paths designed to match your goals and skill level.</p>
             </div>
-            
+
             <div className="group p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-green-500/50 transition-all duration-300">
               <div className="bg-gradient-to-r from-green-500 to-teal-600 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 <Award className="h-8 w-8 text-white" />
@@ -268,18 +266,17 @@ function StudentHomePage() {
             <h2 className="text-3xl font-bold text-white mb-4">Explore Categories</h2>
             <p className="text-gray-300 text-lg">Choose from our wide range of course categories</p>
           </div>
-          
+
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
             {courseCategories.map((categoryItem, index) => (
               <button
                 key={categoryItem.id}
                 onClick={() => handleNavigateToCoursesPage(categoryItem.id)}
-                className={`group p-6 rounded-2xl border border-white/10 transition-all duration-300 hover:scale-105 ${
-                  index % 4 === 0 ? 'bg-gradient-to-br from-blue-500/20 to-purple-600/20 hover:from-blue-500/30 hover:to-purple-600/30' :
+                className={`group p-6 rounded-2xl border border-white/10 transition-all duration-300 hover:scale-105 ${index % 4 === 0 ? 'bg-gradient-to-br from-blue-500/20 to-purple-600/20 hover:from-blue-500/30 hover:to-purple-600/30' :
                   index % 4 === 1 ? 'bg-gradient-to-br from-purple-500/20 to-pink-600/20 hover:from-purple-500/30 hover:to-pink-600/30' :
-                  index % 4 === 2 ? 'bg-gradient-to-br from-green-500/20 to-teal-600/20 hover:from-green-500/30 hover:to-teal-600/30' :
-                  'bg-gradient-to-br from-orange-500/20 to-red-600/20 hover:from-orange-500/30 hover:to-red-600/30'
-                }`}
+                    index % 4 === 2 ? 'bg-gradient-to-br from-green-500/20 to-teal-600/20 hover:from-green-500/30 hover:to-teal-600/30' :
+                      'bg-gradient-to-br from-orange-500/20 to-red-600/20 hover:from-orange-500/30 hover:to-red-600/30'
+                  }`}
               >
                 <div className="text-center">
                   <BookOpen className="h-8 w-8 text-white mx-auto mb-3 group-hover:scale-110 transition-transform" />
@@ -298,7 +295,7 @@ function StudentHomePage() {
             <h2 className="text-3xl font-bold text-white mb-4">Featured Courses</h2>
             <p className="text-gray-300 text-lg">Discover our most popular and newest courses</p>
           </div>
-          
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {isLoading ? (
               Array(4).fill(0).map((_, index) => (
@@ -331,7 +328,7 @@ function StudentHomePage() {
                         <Star className="h-4 w-4 text-yellow-400" />
                       </div>
                     </div>
-                    
+
                     <div className="p-6">
                       <h3 className="font-bold text-lg text-white mb-2 group-hover:text-blue-300 transition-colors line-clamp-2">
                         {courseItem?.title}
@@ -395,7 +392,7 @@ function StudentHomePage() {
               </div>
               <p className="text-gray-400">Empowering learners worldwide with quality education and innovative courses.</p>
             </div>
-            
+
             <div>
               <h3 className="text-white font-semibold mb-4">Quick Links</h3>
               <div className="space-y-2">
@@ -404,7 +401,7 @@ function StudentHomePage() {
                 <Link to="/contact" className="text-gray-400 hover:text-white block transition-colors">Contact</Link>
               </div>
             </div>
-            
+
             <div>
               <h3 className="text-white font-semibold mb-4">Support</h3>
               <div className="space-y-2">
@@ -413,7 +410,7 @@ function StudentHomePage() {
                 <Link to="/community" className="text-gray-400 hover:text-white block transition-colors">Community</Link>
               </div>
             </div>
-            
+
             <div>
               <h3 className="text-white font-semibizer mb-4">Legal</h3>
               <div className="space-y-2">
@@ -423,7 +420,7 @@ function StudentHomePage() {
               </div>
             </div>
           </div>
-          
+
           <div className="border-t border-white/10 mt-8 pt-8 text-center">
             <p className="text-gray-400">© 2024 LearnGate. All rights reserved.</p>
           </div>

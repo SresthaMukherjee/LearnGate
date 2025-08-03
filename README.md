@@ -94,28 +94,6 @@ Certificate:
 
 <img width="1000" alt="Screenshot 2025-05-13 at 8 39 48 PM" src="https://github.com/user-attachments/assets/c0e56cfa-e097-46b2-a872-4b5f737f7450" />
 
-
-Instructor Login:
-
-<img width="800" alt="Screenshot 2025-05-13 at 8 40 05 PM" src="https://github.com/user-attachments/assets/85b3a4fe-8ba0-46da-b45c-853724e4fb00" />
-
-Instructor Dashboard:
-
-<img width="800" alt="Screenshot 2025-05-13 at 8 40 21 PM" src="https://github.com/user-attachments/assets/ce4aef1d-41ae-4ac6-b0c5-1d77c5e4fb81" />
-
-Instrutor Dashboard:
-
-<img width="800" alt="Screenshot 2025-05-13 at 8 40 34 PM" src="https://github.com/user-attachments/assets/d4eda506-0dac-4391-b775-c036d107d271" />
-
-Create_New__Course Page:
-
-<img width="800" alt="Screenshot 2025-05-13 at 8 41 04 PM" src="https://github.com/user-attachments/assets/4a996a80-43d8-40a2-ba72-339320a09ccb" />
-
-Create_New__Course Page:
-
-<img width="800" alt="Screenshot 2025-05-13 at 8 41 17 PM" src="https://github.com/user-attachments/assets/612e6049-6013-429d-b7ad-7a0409625258" />
-
-
 **#Mobile View**
 
 <img width="250" alt="Screenshot 2025-08-03 212845" src="https://github.com/user-attachments/assets/c60c44dc-02e8-4314-ba7c-efab6d724cdd" />
@@ -127,11 +105,34 @@ Create_New__Course Page:
 <img width="250" alt="Screenshot 2025-08-03 204916" src="https://github.com/user-attachments/assets/796e053d-58d9-488d-9b34-de630005b645" />
 <img width="250" alt="Screenshot 2025-08-03 205742" src="https://github.com/user-attachments/assets/4a912705-6eb1-4a4e-81a8-7ba2acda835c" />
 
+**ADMIN PAGE OVERVIEW**
+
+Admin Dashboard:
+
+<img width="1000" alt="Screenshot 2025-08-03 214909" src="https://github.com/user-attachments/assets/14fefb3d-7027-434c-b29d-f9b9ca1767d3" />
+
+Course Management:
+
+<img width="1000" height="" alt="Screenshot 2025-08-03 215441" src="https://github.com/user-attachments/assets/c71fbcf1-8895-4610-b3bf-0cbce5a00137" />
+
+Student Enrollment Overview:
+
+<img width="1000" alt="Screenshot 2025-08-03 214955" src="https://github.com/user-attachments/assets/7dd041f2-36c9-4d83-91ac-43af6974418c" />
+
+
+Create_New__Course Page:
+
+<img width="500" alt="Screenshot 2025-08-03 215924" src="https://github.com/user-attachments/assets/cafd039e-ea29-4f73-830c-3e755827fbc1" />
+<img width="500" alt="Screenshot 2025-08-03 215933" src="https://github.com/user-attachments/assets/0ee2fe90-d644-4ba2-a982-9cfff70e37a3" />
+<img width="500" alt="Screenshot 2025-08-03 220031" src="https://github.com/user-attachments/assets/b15489ee-e6b9-484a-891d-b5f3b9ba36cd" />
+<img width="500" alt="Screenshot 2025-08-03 220001" src="https://github.com/user-attachments/assets/3383116b-1604-406c-9814-483af52407ce" />
+<img width="500" alt="Screenshot 2025-08-03 220013" src="https://github.com/user-attachments/assets/a1c66fbd-c598-4be7-a944-c2687c09f3ad" />
+<img width="500" alt="Screenshot 2025-08-03 220609" src="https://github.com/user-attachments/assets/047d74a4-fab9-472c-bb9c-f9e065953539" />
 
 
 **#DATA DESIGN (XML)**
 
-<img width="600" alt="Screenshot 2025-05-13 at 8 28 23 PM" src="https://github.com/user-attachments/assets/b57ed558-485e-4c17-993d-5faed5eb6225" />
+<img width="1000" alt="Screenshot 2025-05-13 at 8 28 23 PM" src="https://github.com/user-attachments/assets/b57ed558-485e-4c17-993d-5faed5eb6225" />
 
 **#FUTURE SCOPE#**
 

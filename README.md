@@ -40,7 +40,7 @@ advancement.
 
 Landing Page:
 
-<img width="1000" alt="Screenshot 2025-08-03 212647" src="https://github.com/user-attachments/assets/1a9ba977-3d4e-44fc-b24a-b1eecb3f6457" />
+<img width="1000" alt="Screenshot 2025-08-03 212647" src="https://github.com/user-attachments/assets/1784f13c-cecb-45fd-a838-b8351942af8a" />
 
 
 Signup/Signin Page:

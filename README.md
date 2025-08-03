@@ -56,19 +56,25 @@ Login Successful:
 
 Homepage:
 
-<img width="800" alt="Screenshot 2025-05-13 at 8 37 35 PM" src="https://github.com/user-attachments/assets/a59aeba8-75e9-4683-abd5-1212901297b2" />
+<img width="800" alt="Screenshot 2025-05-13 at 8 37 35 PM" src="https://github.com/user-attachments/assets/49fcb5b3-21ed-49df-8026-b73371432b4c" />
+<img width="800" alt="Screenshot 2025-05-13 at 8 37 35 PM" src="https://github.com/user-attachments/assets/0172cf90-f8fc-46e3-b4d9-9760cdb422a5" />
+<img width="800" alt="Screenshot 2025-05-13 at 8 37 35 PM" src="https://github.com/user-attachments/assets/7700b0e8-2d31-4253-b012-bc5e2e0ccb86" />
+<img width="800" alt="Screenshot 2025-05-13 at 8 37 35 PM" src="https://github.com/user-attachments/assets/0c0fa819-1db7-488d-bcdf-dce763dde6f7" />
 
 AboutUs Page:
 
-<img width="800" alt="Screenshot 2025-05-13 at 8 37 51 PM" src="https://github.com/user-attachments/assets/7c1975eb-bb5a-4d29-915c-140a80e822c9" />
+<img width="800" alt="Screenshot 2025-05-13 at 8 37 51 PM" src="https://github.com/user-attachments/assets/6082c2b3-323d-4d2e-8386-df5b795410af" />
+<img width="800" alt="Screenshot 2025-05-13 at 8 37 51 PM" src="https://github.com/user-attachments/assets/c93b20a0-84f7-4fcb-bfdb-e614d00b34fc" />
+
 
 Course Category:
 
-<img width="800" alt="Screenshot 2025-05-13 at 8 38 10 PM" src="https://github.com/user-attachments/assets/20e1cb3e-4cfd-4a66-b739-12f470f5bb84" />
+<img width="800" alt="Screenshot 2025-05-13 at 8 38 10 PM" src="https://github.com/user-attachments/assets/c2c75f9d-520b-4b71-b7df-920960c77c9a" />
 
 Course Description: 
 
-<img width="800" alt="Screenshot 2025-05-13 at 8 38 28 PM" src="https://github.com/user-attachments/assets/8c3dc9d3-80f6-4075-aa64-ecf20e03ea5d" />
+<img width="800" alt="Screenshot 2025-05-13 at 8 38 28 PM" src="https://github.com/user-attachments/assets/18ccba96-b03a-4643-8d1b-e873cf5ff729" />
+<img width="800" alt="Screenshot 2025-05-13 at 8 38 28 PM" src="https://github.com/user-attachments/assets/1989e4c0-98df-46ce-a869-940de124f383" />
 
 Payement Gateway:
 
@@ -80,15 +86,22 @@ Payment Gateway:
 
 My Course Page:
 
-<img width="800" alt="Screenshot 2025-05-13 at 8 39 18 PM" src="https://github.com/user-attachments/assets/9a55138c-743d-4b68-9e90-4d46b7163f83" />
+<img width="800" alt="Screenshot 2025-05-13 at 8 39 18 PM" src="https://github.com/user-attachments/assets/e648bad1-cf2a-42a8-a351-1a9cca9bc98c" />
 
 Access Course:
 
-<img width="800" alt="Screenshot 2025-05-13 at 8 39 35 PM" src="https://github.com/user-attachments/assets/1edccaec-4236-4c12-bf95-54b098a472fe" />
+<img width="800" alt="Screenshot 2025-05-13 at 8 39 35 PM" src="https://github.com/user-attachments/assets/18c008fa-66ad-4f45-9f73-3e18ad40e13d" />
+<img width="800" alt="Screenshot 2025-05-13 at 8 39 35 PM" src="https://github.com/user-attachments/assets/abeda931-91ac-47f8-b059-ead8ce8b98b5" />
+<img width="800" alt="Screenshot 2025-05-13 at 8 39 35 PM" src="https://github.com/user-attachments/assets/efc52822-7a0f-4ae2-9cea-43d90c1decdd" />
+
 
 Course Completion:
 
-<img width="800" alt="Screenshot 2025-05-13 at 8 39 48 PM" src="https://github.com/user-attachments/assets/29587c4a-959e-4783-b51e-952bb4d13e3f" />
+<img width="800" alt="Screenshot 2025-05-13 at 8 39 48 PM" src="https://github.com/user-attachments/assets/68f00e3d-7511-444e-bdd1-09bee375cee3" />
+
+Certificate:
+<img width="800" alt="Screenshot 2025-05-13 at 8 39 48 PM" src="https://github.com/user-attachments/assets/c0e56cfa-e097-46b2-a872-4b5f737f7450" />
+
 
 Instructor Login:
 
@@ -109,6 +122,10 @@ Create_New__Course Page:
 Create_New__Course Page:
 
 <img width="800" alt="Screenshot 2025-05-13 at 8 41 17 PM" src="https://github.com/user-attachments/assets/612e6049-6013-429d-b7ad-7a0409625258" />
+
+**#Mobile View**
+
+<img width="400" alt="Screenshot 2025-05-13 at 8 37 51 PM" src="https://github.com/user-attachments/assets/f7398e64-cec9-45b1-a680-0f414cf009d0" />
 
 
 
@@ -153,6 +170,7 @@ This can foster a collaborative learning environment.
 
 Integrate a digital certification system where students can verify their certificates online. This adds credibility and
 value to completed courses.
+
 
 
 

@@ -40,7 +40,7 @@ advancement.
 
 Landing Page:
 
-<img width="1000" alt="Screenshot 2025-08-03 212647" src="https://github.com/user-attachments/assets/1784f13c-cecb-45fd-a838-b8351942af8a" />
+<img width="800" alt="Screenshot 2025-08-03 212647" src="https://github.com/user-attachments/assets/1784f13c-cecb-45fd-a838-b8351942af8a" />
 
 
 Signup/Signin Page:
@@ -50,10 +50,10 @@ Signup/Signin Page:
 
 Homepage:
 
-<img width="400" alt="Screenshot 2025-05-13 at 8 37 35 PM" src="https://github.com/user-attachments/assets/49fcb5b3-21ed-49df-8026-b73371432b4c" />
-<img width="400" alt="Screenshot 2025-05-13 at 8 37 35 PM" src="https://github.com/user-attachments/assets/590a86cb-3db8-4a48-a106-29d3dc408275" />
-<img width="400" alt="Screenshot 2025-05-13 at 8 37 35 PM" src="https://github.com/user-attachments/assets/7700b0e8-2d31-4253-b012-bc5e2e0ccb86" />
-<img width="400" alt="Screenshot 2025-05-13 at 8 37 35 PM" src="https://github.com/user-attachments/assets/0c0fa819-1db7-488d-bcdf-dce763dde6f7" />
+<img width="800" alt="Screenshot 2025-05-13 at 8 37 35 PM" src="https://github.com/user-attachments/assets/49fcb5b3-21ed-49df-8026-b73371432b4c" />
+<img width="800" alt="Screenshot 2025-05-13 at 8 37 35 PM" src="https://github.com/user-attachments/assets/590a86cb-3db8-4a48-a106-29d3dc408275" />
+<img width="800" alt="Screenshot 2025-05-13 at 8 37 35 PM" src="https://github.com/user-attachments/assets/7700b0e8-2d31-4253-b012-bc5e2e0ccb86" />
+<img width="800" alt="Screenshot 2025-05-13 at 8 37 35 PM" src="https://github.com/user-attachments/assets/0c0fa819-1db7-488d-bcdf-dce763dde6f7" />
 
 AboutUs Page:
 
@@ -63,7 +63,7 @@ AboutUs Page:
 
 Course Category:
 
-<img width="1000" alt="Screenshot 2025-05-13 at 8 38 10 PM" src="https://github.com/user-attachments/assets/c2c75f9d-520b-4b71-b7df-920960c77c9a" />
+<img width="800" alt="Screenshot 2025-05-13 at 8 38 10 PM" src="https://github.com/user-attachments/assets/c2c75f9d-520b-4b71-b7df-920960c77c9a" />
 
 Course Description: 
 
@@ -77,11 +77,11 @@ Payement Gateway:
 
 My Course Page:
 
-<img width="1000" alt="Screenshot 2025-05-13 at 8 39 18 PM" src="https://github.com/user-attachments/assets/e648bad1-cf2a-42a8-a351-1a9cca9bc98c" />
+<img width="800" alt="Screenshot 2025-05-13 at 8 39 18 PM" src="https://github.com/user-attachments/assets/e648bad1-cf2a-42a8-a351-1a9cca9bc98c" />
 
 Access Course:
 
-<img width="400" alt="Screenshot 2025-08-03 211110" src="https://github.com/user-attachments/assets/939d2238-0091-43df-ac8a-edb1ac4046fc" />
+<img width="400" alt="Screenshot 2025-08-03 203350" src="https://github.com/user-attachments/assets/5a3ff793-f6ae-46fb-9db9-d47edf651c25" />
 <img width="400" alt="Screenshot 2025-05-13 at 8 39 35 PM" src="https://github.com/user-attachments/assets/abeda931-91ac-47f8-b059-ead8ce8b98b5" />
 
 Course Completion:

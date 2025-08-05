@@ -122,17 +122,17 @@ Student Enrollment Overview:
 
 Create_New__Course Page:
 
-<img width="800" alt="Screenshot 2025-08-03 215924" src="https://github.com/user-attachments/assets/cafd039e-ea29-4f73-830c-3e755827fbc1" />
-<img width="800" alt="Screenshot 2025-08-03 215933" src="https://github.com/user-attachments/assets/0ee2fe90-d644-4ba2-a982-9cfff70e37a3" />
-<img width="800" alt="Screenshot 2025-08-03 220031" src="https://github.com/user-attachments/assets/b15489ee-e6b9-484a-891d-b5f3b9ba36cd" />
-<img width="800" alt="Screenshot 2025-08-03 220001" src="https://github.com/user-attachments/assets/3383116b-1604-406c-9814-483af52407ce" />
-<img width="800" alt="Screenshot 2025-08-03 220013" src="https://github.com/user-attachments/assets/a1c66fbd-c598-4be7-a944-c2687c09f3ad" />
-<img width="800" alt="Screenshot 2025-08-03 220609" src="https://github.com/user-attachments/assets/047d74a4-fab9-472c-bb9c-f9e065953539" />
+<img width="400" alt="Screenshot 2025-08-03 215924" src="https://github.com/user-attachments/assets/cafd039e-ea29-4f73-830c-3e755827fbc1" />
+<img width="400" alt="Screenshot 2025-08-03 215933" src="https://github.com/user-attachments/assets/0ee2fe90-d644-4ba2-a982-9cfff70e37a3" />
+<img width="400" alt="Screenshot 2025-08-03 220031" src="https://github.com/user-attachments/assets/b15489ee-e6b9-484a-891d-b5f3b9ba36cd" />
+<img width="400" alt="Screenshot 2025-08-03 220001" src="https://github.com/user-attachments/assets/3383116b-1604-406c-9814-483af52407ce" />
+<img width="400" alt="Screenshot 2025-08-03 220013" src="https://github.com/user-attachments/assets/a1c66fbd-c598-4be7-a944-c2687c09f3ad" />
+<img width="400" alt="Screenshot 2025-08-03 220609" src="https://github.com/user-attachments/assets/047d74a4-fab9-472c-bb9c-f9e065953539" />
 
 
 **#DATA DESIGN (XML)**
 
-<img width="1000" alt="Screenshot 2025-05-13 at 8 28 23 PM" src="https://github.com/user-attachments/assets/b57ed558-485e-4c17-993d-5faed5eb6225" />
+<img width="800" alt="Screenshot 2025-05-13 at 8 28 23 PM" src="https://github.com/user-attachments/assets/b57ed558-485e-4c17-993d-5faed5eb6225" />
 
 **#FUTURE SCOPE#**
 

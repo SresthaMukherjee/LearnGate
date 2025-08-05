@@ -50,15 +50,15 @@ Signup/Signin Page:
 
 Homepage:
 
-<img width="500" alt="Screenshot 2025-05-13 at 8 37 35 PM" src="https://github.com/user-attachments/assets/49fcb5b3-21ed-49df-8026-b73371432b4c" />
-<img width="500" alt="Screenshot 2025-05-13 at 8 37 35 PM" src="https://github.com/user-attachments/assets/590a86cb-3db8-4a48-a106-29d3dc408275" />
-<img width="500" alt="Screenshot 2025-05-13 at 8 37 35 PM" src="https://github.com/user-attachments/assets/7700b0e8-2d31-4253-b012-bc5e2e0ccb86" />
-<img width="500" alt="Screenshot 2025-05-13 at 8 37 35 PM" src="https://github.com/user-attachments/assets/0c0fa819-1db7-488d-bcdf-dce763dde6f7" />
+<img width="400" alt="Screenshot 2025-05-13 at 8 37 35 PM" src="https://github.com/user-attachments/assets/49fcb5b3-21ed-49df-8026-b73371432b4c" />
+<img width="400" alt="Screenshot 2025-05-13 at 8 37 35 PM" src="https://github.com/user-attachments/assets/590a86cb-3db8-4a48-a106-29d3dc408275" />
+<img width="400" alt="Screenshot 2025-05-13 at 8 37 35 PM" src="https://github.com/user-attachments/assets/7700b0e8-2d31-4253-b012-bc5e2e0ccb86" />
+<img width="400" alt="Screenshot 2025-05-13 at 8 37 35 PM" src="https://github.com/user-attachments/assets/0c0fa819-1db7-488d-bcdf-dce763dde6f7" />
 
 AboutUs Page:
 
-<img width="500" alt="Screenshot 2025-05-13 at 8 37 51 PM" src="https://github.com/user-attachments/assets/6082c2b3-323d-4d2e-8386-df5b795410af" />
-<img width="500" alt="Screenshot 2025-05-13 at 8 37 51 PM" src="https://github.com/user-attachments/assets/c93b20a0-84f7-4fcb-bfdb-e614d00b34fc" />
+<img width="400" alt="Screenshot 2025-05-13 at 8 37 51 PM" src="https://github.com/user-attachments/assets/6082c2b3-323d-4d2e-8386-df5b795410af" />
+<img width="400" alt="Screenshot 2025-05-13 at 8 37 51 PM" src="https://github.com/user-attachments/assets/c93b20a0-84f7-4fcb-bfdb-e614d00b34fc" />
 
 
 Course Category:
@@ -67,13 +67,13 @@ Course Category:
 
 Course Description: 
 
-<img width="500" alt="Screenshot 2025-05-13 at 8 38 28 PM" src="https://github.com/user-attachments/assets/98b896ff-4438-4723-ae4f-66e1a8fb4506" />
-<img width="500" alt="Screenshot 2025-05-13 at 8 38 28 PM" src="https://github.com/user-attachments/assets/1989e4c0-98df-46ce-a869-940de124f383" />
+<img width="400" alt="Screenshot 2025-05-13 at 8 38 28 PM" src="https://github.com/user-attachments/assets/98b896ff-4438-4723-ae4f-66e1a8fb4506" />
+<img width="400" alt="Screenshot 2025-05-13 at 8 38 28 PM" src="https://github.com/user-attachments/assets/1989e4c0-98df-46ce-a869-940de124f383" />
 
 Payement Gateway:
 
-<img width="500" alt="Screenshot 2025-05-13 at 8 38 42 PM" src="https://github.com/user-attachments/assets/59a50162-37ff-4300-a769-0cbfc0474766" />
-<img width="500" alt="Screenshot 2025-05-13 at 8 39 03 PM" src="https://github.com/user-attachments/assets/7cbb53b8-8f56-4f23-ac24-1607b0510114" />
+<img width="400" alt="Screenshot 2025-05-13 at 8 38 42 PM" src="https://github.com/user-attachments/assets/59a50162-37ff-4300-a769-0cbfc0474766" />
+<img width="400" alt="Screenshot 2025-05-13 at 8 39 03 PM" src="https://github.com/user-attachments/assets/7cbb53b8-8f56-4f23-ac24-1607b0510114" />
 
 My Course Page:
 
@@ -81,13 +81,13 @@ My Course Page:
 
 Access Course:
 
-<img width="500" alt="Screenshot 2025-08-03 211110" src="https://github.com/user-attachments/assets/939d2238-0091-43df-ac8a-edb1ac4046fc" />
-<img width="500" alt="Screenshot 2025-05-13 at 8 39 35 PM" src="https://github.com/user-attachments/assets/abeda931-91ac-47f8-b059-ead8ce8b98b5" />
+<img width="400" alt="Screenshot 2025-08-03 211110" src="https://github.com/user-attachments/assets/939d2238-0091-43df-ac8a-edb1ac4046fc" />
+<img width="400" alt="Screenshot 2025-05-13 at 8 39 35 PM" src="https://github.com/user-attachments/assets/abeda931-91ac-47f8-b059-ead8ce8b98b5" />
 
 Course Completion:
 
-<img width="500" alt="Screenshot 2025-05-13 at 8 39 48 PM" src="https://github.com/user-attachments/assets/68f00e3d-7511-444e-bdd1-09bee375cee3" />
-<img width="500" alt="Screenshot 2025-08-03 203326" src="https://github.com/user-attachments/assets/ac3b6d51-bf89-491d-95e1-8bce48f4ced8" />
+<img width="400" alt="Screenshot 2025-05-13 at 8 39 48 PM" src="https://github.com/user-attachments/assets/68f00e3d-7511-444e-bdd1-09bee375cee3" />
+<img width="400" alt="Screenshot 2025-08-03 203326" src="https://github.com/user-attachments/assets/ac3b6d51-bf89-491d-95e1-8bce48f4ced8" />
 
 
 Certificate:

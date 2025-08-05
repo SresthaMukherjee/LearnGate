@@ -81,7 +81,7 @@ My Course Page:
 
 Access Course:
 
-<img width="400" alt="Screenshot 2025-08-03 203350" src="https://github.com/user-attachments/assets/5a3ff793-f6ae-46fb-9db9-d47edf651c25" />
+<img width="400" height="779" alt="Screenshot 2025-08-03 203403" src="https://github.com/user-attachments/assets/03f8e45b-5106-4da1-93dc-18efc4c547f4" />
 <img width="400" alt="Screenshot 2025-05-13 at 8 39 35 PM" src="https://github.com/user-attachments/assets/abeda931-91ac-47f8-b059-ead8ce8b98b5" />
 
 Course Completion:
@@ -92,7 +92,7 @@ Course Completion:
 
 Certificate:
 
-<img width="1000" alt="Screenshot 2025-05-13 at 8 39 48 PM" src="https://github.com/user-attachments/assets/c0e56cfa-e097-46b2-a872-4b5f737f7450" />
+<img width="800" alt="Screenshot 2025-05-13 at 8 39 48 PM" src="https://github.com/user-attachments/assets/c0e56cfa-e097-46b2-a872-4b5f737f7450" />
 
 **#Mobile View**
 

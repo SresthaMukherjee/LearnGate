@@ -45,8 +45,8 @@ Landing Page:
 
 Signup/Signin Page:
 
-<img width="500" alt="Screenshot 2025-08-03 212709" src="https://github.com/user-attachments/assets/1455928c-b4bc-4f2d-9cde-8398f15c14fe" />
-<img width="500" alt="Screenshot 2025-08-03 212808" src="https://github.com/user-attachments/assets/32c90f89-282d-4eb3-8791-6b4577521f9f" />
+<img width="400" alt="Screenshot 2025-08-03 212709" src="https://github.com/user-attachments/assets/1455928c-b4bc-4f2d-9cde-8398f15c14fe" />
+<img width="400" alt="Screenshot 2025-08-03 212808" src="https://github.com/user-attachments/assets/32c90f89-282d-4eb3-8791-6b4577521f9f" />
 
 Homepage:
 

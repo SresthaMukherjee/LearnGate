@@ -13,7 +13,9 @@ const studentCourseProgressRoutes = require("./routes/student-routes/course-prog
 const app = express();
 const PORT = process.env.PORT || 8001;
 const MONGO_URI = process.env.MONGO_URI;
-console.log(process.env.CLOUDINARY_API_KEY)
+
+console.log(process.env.CLOUDINARY_API_KEY);
+
 app.use(
   cors({
     origin: '*',
@@ -40,6 +42,15 @@ app.use("/student/course", studentViewCourseRoutes);
 app.use("/student/order", studentViewOrderRoutes);
 app.use("/student/courses-bought", studentCoursesRoutes);
 app.use("/student/course-progress", studentCourseProgressRoutes);
+
+// ✅ health route (add this before error handler or listen)
+app.get("/health", (req, res) => {
+  res.json({
+    status: "ok",
+    service: "LearnGate Backend",
+    time: new Date().toISOString()
+  });
+});
 
 app.use((err, req, res, next) => {
   console.log(err.stack);

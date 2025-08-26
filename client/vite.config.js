@@ -12,4 +12,5 @@ export default defineConfig({
   build: {
     chunkSizeWarningLimit: 2000, // increases warning limit to 1000 kB
   },
+  base: "/", // ✅ important for Vercel so assets load correctly
 });
